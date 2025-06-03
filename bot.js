@@ -4,7 +4,7 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
-const token = process.env.MTM3NDM4MjcwMTU4NjQxNTY0Nw.G2jQ0s.rmjdlnqEETMyyTaRP0IlkY7aIT9SLflnaRF_Vo;
+const token = process.env.DISCORD_TOKEN;
 const prefix = '!';
 const allowedRoleId = '1373832351762612234'; // Role ID that can use admin commands
 const users = {};
