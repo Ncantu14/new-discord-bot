@@ -170,17 +170,27 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'encounter') {
-   const embed = new EmbedBuilder()
-  .setTitle(`⚔️ Encounter: ${encounter.name}`)
-  .setDescription(
-    `🧬 **Species:** ${encounter.species}\n` +
-    `🎭 **Role:** ${encounter.role}\n` +
-    `🌍 **Location:** ${encounter.location}\n` +
-    `🔥 **Threat Level:** ${encounter.threat}\n` +
-    `❤️ **HP:** ${encounter.hp}\n` +
-    `💥 **Damage:** ${encounter.damage}`
-  )
-  .setColor('DarkPurple');
+    const encounter = encounterList[Math.floor(Math.random() * encounterList.length)];
+    const embed = new EmbedBuilder()
+      .setTitle(`⚔️ Encounter: ${encounter.name}`)
+      .setDescription(
+        `🧬 **Species:** ${encounter.species}
+` +
+        `🎭 **Role:** ${encounter.role}
+` +
+        `🌍 **Location:** ${encounter.location}
+` +
+        `🔥 **Threat Level:** ${encounter.threat}
+` +
+        `❤️ **HP:** ${encounter.hp}
+` +
+        `💥 **Damage:** ${encounter.damage}`
+      )
+      .setColor('DarkPurple');
+    return message.reply({ embeds: [embed] });
+  }`)
+      .setDescription(`**Type:** ${encounter.type}\n**Location:** ${encounter.location}\n**CR:** ${encounter.cr}\n**Details:** ${encounter.description}`)
+      .setColor('DarkPurple');
     return message.reply({ embeds: [embed] });
   }
 
@@ -224,6 +234,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
