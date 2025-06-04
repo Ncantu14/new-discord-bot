@@ -64,7 +64,7 @@ function postBounty() {
 
   client.channels.fetch(bountyChannelId).then(channel => {
     channel.send({ embeds: [embed] }).then(msg => {
-      activeBounty = { id: msg.id, claimed: false };
+      activeBounty = { id: msg.id, claimed: false, claimer: null };
       msg.react('🎯');
 
       const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
@@ -73,6 +73,7 @@ function postBounty() {
       collector.on('collect', (reaction, user) => {
         if (!activeBounty.claimed) {
           activeBounty.claimed = true;
+          activeBounty.claimer = user.id;
           msg.reply(`🛡️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
         }
       });
@@ -147,7 +148,9 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'bountyclaim') {
-    return message.reply('🔧 Bounty claims are currently manual. Please notify a mod for approval.');
+    if (!activeBounty || !activeBounty.claimer) return message.reply('⚠️ No active bounty claim to process.');
+    const rolePing = `<@&${allowedRoleId}>`;
+    return message.reply(`${rolePing} – Bounty claimed by <@${activeBounty.claimer}>. Please verify and reward accordingly.`);
   }
 
   if (command === 'forcebounty') {
@@ -196,6 +199,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
