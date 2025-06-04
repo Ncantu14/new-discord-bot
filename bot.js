@@ -189,6 +189,22 @@ client.on('messageCreate', async (message) => {
       .setColor('DarkPurple');
     return message.reply({ embeds: [embed] });
   }`)
+      .setDescription(
+        `🧬 **Species:** ${encounter.species}
+` +
+        `🎭 **Role:** ${encounter.role}
+` +
+        `🌍 **Location:** ${encounter.location}
+` +
+        `🔥 **Threat Level:** ${encounter.threat}
+` +
+        `❤️ **HP:** ${encounter.hp}
+` +
+        `💥 **Damage:** ${encounter.damage}`
+      )
+      .setColor('DarkPurple');
+    return message.reply({ embeds: [embed] });
+  }`)
       .setDescription(`**Type:** ${encounter.type}\n**Location:** ${encounter.location}\n**CR:** ${encounter.cr}\n**Details:** ${encounter.description}`)
       .setColor('DarkPurple');
     return message.reply({ embeds: [embed] });
@@ -234,6 +250,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
