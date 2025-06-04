@@ -1,902 +1,1952 @@
 [
   {
-    "name": "Karn Vos the Silent",
+    "name": "Karn Vos",
     "species": "Devaronian",
     "location": "Rishi",
-    "reward": 780
+    "reward": 780,
+    "job_type": "Dead Only",
+    "crime": "Sith Traitor",
+    "affiliation": "Republic",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Talik Marr of Korriban",
+    "name": "Talik Marr",
     "species": "Chiss",
     "location": "Dromund Kaas",
-    "reward": 1042
+    "reward": 1042,
+    "job_type": "Escort Target",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Silent",
+    "name": "Jelka Thorn",
     "species": "Rodian",
     "location": "Balmorra",
-    "reward": 895
+    "reward": 895,
+    "job_type": "Escort Target",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "High",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Myra Nol the Red",
+    "name": "Myra Nol",
     "species": "Chiss",
-    "location": "Ilum",
-    "reward": 2378
+    "location": "Nal Hutta",
+    "reward": 2378,
+    "job_type": "Escort Target",
+    "crime": "Espionage",
+    "affiliation": "Republic",
+    "known_skills": "Stealth Operative",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
   },
   {
-    "name": "Kyra Thorne the Red",
+    "name": "Kyra Thorne",
     "species": "Cyborg",
     "location": "Alderaan",
-    "reward": 1034
+    "reward": 1034,
+    "job_type": "Dead Only",
+    "crime": "Assassination",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Talik Marr the Red",
+    "name": "Talik Marr",
     "species": "Twi'lek",
     "location": "Balmorra",
-    "reward": 2195
+    "reward": 2195,
+    "job_type": "Intel Recovery",
+    "crime": "Massacre",
+    "affiliation": "Republic",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Talik Marr of Korriban",
+    "name": "Talik Marr",
     "species": "Cyborg",
-    "location": "Tatooine",
-    "reward": 1438
+    "location": "Dromund Kaas",
+    "reward": 1438,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Lorik Vonn the Red",
+    "name": "Lorik Vonn",
     "species": "Togruta",
-    "location": "Ord Mantell",
-    "reward": 785
+    "location": "Alderaan",
+    "reward": 785,
+    "job_type": "Capture Alive",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Independent",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
     "name": "Jelka Thorn",
     "species": "Chiss",
-    "location": "Nar Shaddaa",
-    "reward": 2129
+    "location": "Balmorra",
+    "reward": 2129,
+    "job_type": "Capture Alive",
+    "crime": "Espionage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Myra Nol the Scarred",
+    "name": "Myra Nol",
     "species": "Togruta",
-    "location": "Ilum",
-    "reward": 2522
+    "location": "Rishi",
+    "reward": 2522,
+    "job_type": "Intel Recovery",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Talik Marr the Scarred",
+    "name": "Talik Marr",
     "species": "Nikto",
-    "location": "Taris",
-    "reward": 1644
+    "location": "Nal Hutta",
+    "reward": 1644,
+    "job_type": "Intel Recovery",
+    "crime": "Republic Defector",
+    "affiliation": "Independent",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
   },
   {
-    "name": "Rask Vano the Silent",
+    "name": "Rask Vano",
     "species": "Devaronian",
-    "location": "Hutta",
-    "reward": 1626
+    "location": "Dromund Kaas",
+    "reward": 1626,
+    "job_type": "Capture Alive",
+    "crime": "Smuggling",
+    "affiliation": "Republic",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Rask Vano the Scarred",
+    "name": "Rask Vano",
     "species": "Togruta",
-    "location": "Ord Mantell",
-    "reward": 1935
+    "location": "Dromund Kaas",
+    "reward": 1935,
+    "job_type": "Capture Alive",
+    "crime": "Espionage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Selra Venn the Scarred",
+    "name": "Selra Venn",
     "species": "Zabrak",
-    "location": "Ord Mantell",
-    "reward": 2802
+    "location": "Dromund Kaas",
+    "reward": 2802,
+    "job_type": "Capture Alive",
+    "crime": "Artifact Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Low",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Tarn Vox the Silent",
+    "name": "Tarn Vox",
     "species": "Twi'lek",
     "location": "Makeb",
-    "reward": 2435
+    "reward": 2435,
+    "job_type": "Escort Target",
+    "crime": "Slave Trafficking",
+    "affiliation": "Sith Empire",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Shara Ren Darkblade",
+    "name": "Shara Ren",
     "species": "Zabrak",
-    "location": "Ord Mantell",
-    "reward": 2902
+    "location": "Makeb",
+    "reward": 2902,
+    "job_type": "Escort Target",
+    "crime": "Espionage",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
     "name": "Drex Malin",
     "species": "Twi'lek",
-    "location": "Nar Shaddaa",
-    "reward": 1175
+    "location": "Rishi",
+    "reward": 1175,
+    "job_type": "Capture Alive",
+    "crime": "Assassination",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Myra Nol Darkblade",
+    "name": "Myra Nol",
     "species": "Mirialan",
-    "location": "Tatooine",
-    "reward": 1658
+    "location": "Balmorra",
+    "reward": 1658,
+    "job_type": "Dead Only",
+    "crime": "Sith Traitor",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Drex Malin of Korriban",
+    "name": "Drex Malin",
     "species": "Nikto",
     "location": "Dromund Kaas",
-    "reward": 2474
+    "reward": 2474,
+    "job_type": "Escort Target",
+    "crime": "Assassination",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Myra Nol the Scarred",
+    "name": "Myra Nol",
     "species": "Human",
-    "location": "Hutta",
-    "reward": 2202
+    "location": "Rishi",
+    "reward": 2202,
+    "job_type": "Capture Alive",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Tarn Vox the Scarred",
+    "name": "Tarn Vox",
     "species": "Nikto",
     "location": "Balmorra",
-    "reward": 1803
+    "reward": 1803,
+    "job_type": "Dead Only",
+    "crime": "Sith Traitor",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Vessa Drax of Korriban",
+    "name": "Vessa Drax",
     "species": "Human",
-    "location": "Hutta",
-    "reward": 2148
+    "location": "Balmorra",
+    "reward": 2148,
+    "job_type": "Escort Target",
+    "crime": "Artifact Theft",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Lorik Vonn the Silent",
+    "name": "Lorik Vonn",
     "species": "Togruta",
-    "location": "Taris",
-    "reward": 2933
+    "location": "Coruscant",
+    "reward": 2933,
+    "job_type": "Escort Target",
+    "crime": "Slave Trafficking",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Coruscant near the outskirts"
   },
   {
-    "name": "Gorran Kreel the Silent",
+    "name": "Gorran Kreel",
     "species": "Zabrak",
-    "location": "Hutta",
-    "reward": 1871
+    "location": "Balmorra",
+    "reward": 1871,
+    "job_type": "Intel Recovery",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Vix Rend the Silent",
+    "name": "Vix Rend",
     "species": "Mirialan",
-    "location": "Ilum",
-    "reward": 2035
+    "location": "Alderaan",
+    "reward": 2035,
+    "job_type": "Intel Recovery",
+    "crime": "Sith Traitor",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Red",
+    "name": "Jelka Thorn",
     "species": "Nikto",
     "location": "Dromund Kaas",
-    "reward": 1962
+    "reward": 1962,
+    "job_type": "Alive Preferred",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Karn Vos the Red",
+    "name": "Karn Vos",
     "species": "Nikto",
     "location": "Alderaan",
-    "reward": 1997
+    "reward": 1997,
+    "job_type": "Capture Alive",
+    "crime": "Espionage",
+    "affiliation": "Sith Empire",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Karn Vos Darkblade",
+    "name": "Karn Vos",
     "species": "Human",
     "location": "Alderaan",
-    "reward": 2178
+    "reward": 2178,
+    "job_type": "Escort Target",
+    "crime": "Slave Trafficking",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Shara Ren the Silent",
+    "name": "Shara Ren",
     "species": "Chiss",
-    "location": "Korriban",
-    "reward": 1264
+    "location": "Dromund Kaas",
+    "reward": 1264,
+    "job_type": "Capture Alive",
+    "crime": "Sabotage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
     "name": "Vek Dross",
     "species": "Twi'lek",
-    "location": "Taris",
-    "reward": 1006
+    "location": "Rishi",
+    "reward": 1006,
+    "job_type": "Capture Alive",
+    "crime": "Smuggling",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
     "name": "Gorran Kreel",
     "species": "Rodian",
-    "location": "Nar Shaddaa",
-    "reward": 2138
+    "location": "Makeb",
+    "reward": 2138,
+    "job_type": "Dead Only",
+    "crime": "Slave Trafficking",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Tolan Reiss the Silent",
+    "name": "Tolan Reiss",
     "species": "Zabrak",
-    "location": "Korriban",
-    "reward": 1999
+    "location": "Dromund Kaas",
+    "reward": 1999,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Scarred",
+    "name": "Jelka Thorn",
     "species": "Togruta",
-    "location": "Ilum",
-    "reward": 2477
+    "location": "Nal Hutta",
+    "reward": 2477,
+    "job_type": "Dead Only",
+    "crime": "Jedi Killer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
   },
   {
     "name": "Jorik Kaan",
     "species": "Togruta",
     "location": "Alderaan",
-    "reward": 1140
+    "reward": 1140,
+    "job_type": "Capture Alive",
+    "crime": "Jedi Killer",
+    "affiliation": "Republic",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Vix Rend Darkblade",
+    "name": "Vix Rend",
     "species": "Chiss",
-    "location": "Ord Mantell",
-    "reward": 2333
+    "location": "Makeb",
+    "reward": 2333,
+    "job_type": "Capture Alive",
+    "crime": "Jedi Killer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Explosives Expert",
+    "difficulty": "High",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Nira Solari Darkblade",
+    "name": "Nira Solari",
     "species": "Zabrak",
-    "location": "Nar Shaddaa",
-    "reward": 1366
+    "location": "Rishi",
+    "reward": 1366,
+    "job_type": "Dead Only",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Republic",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Vek Dross Darkblade",
+    "name": "Vek Dross",
     "species": "Mirialan",
-    "location": "Taris",
-    "reward": 2641
+    "location": "Alderaan",
+    "reward": 2641,
+    "job_type": "Escort Target",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Jorik Kaan Darkblade",
+    "name": "Jorik Kaan",
     "species": "Devaronian",
     "location": "Rishi",
-    "reward": 2571
+    "reward": 2571,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Republic",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Selra Venn the Red",
+    "name": "Selra Venn",
     "species": "Togruta",
-    "location": "Nar Shaddaa",
-    "reward": 1876
+    "location": "Balmorra",
+    "reward": 1876,
+    "job_type": "Escort Target",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Vek Dross the Silent",
+    "name": "Vek Dross",
     "species": "Chiss",
     "location": "Dromund Kaas",
-    "reward": 1901
+    "reward": 1901,
+    "job_type": "Intel Recovery",
+    "crime": "Massacre",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Vessa Drax the Red",
+    "name": "Vessa Drax",
     "species": "Mirialan",
     "location": "Dromund Kaas",
-    "reward": 2546
+    "reward": 2546,
+    "job_type": "Escort Target",
+    "crime": "Sabotage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Myra Nol the Silent",
+    "name": "Myra Nol",
     "species": "Rodian",
     "location": "Rishi",
-    "reward": 1304
+    "reward": 1304,
+    "job_type": "Alive Preferred",
+    "crime": "Artifact Theft",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Vek Dross the Scarred",
+    "name": "Vek Dross",
     "species": "Zabrak",
     "location": "Alderaan",
-    "reward": 1837
+    "reward": 1837,
+    "job_type": "Capture Alive",
+    "crime": "Assassination",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Lorik Vonn of Korriban",
+    "name": "Lorik Vonn",
     "species": "Togruta",
     "location": "Alderaan",
-    "reward": 1369
+    "reward": 1369,
+    "job_type": "Alive Preferred",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Myra Nol the Silent",
+    "name": "Myra Nol",
     "species": "Human",
-    "location": "Taris",
-    "reward": 1056
+    "location": "Dromund Kaas",
+    "reward": 1056,
+    "job_type": "Alive Preferred",
+    "crime": "Republic Defector",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Jorik Kaan of Korriban",
+    "name": "Jorik Kaan",
     "species": "Cyborg",
     "location": "Rishi",
-    "reward": 1146
+    "reward": 1146,
+    "job_type": "Capture Alive",
+    "crime": "Sabotage",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Bran Durek the Silent",
+    "name": "Bran Durek",
     "species": "Rodian",
     "location": "Balmorra",
-    "reward": 785
+    "reward": 785,
+    "job_type": "Escort Target",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Karn Vos the Red",
+    "name": "Karn Vos",
     "species": "Chiss",
     "location": "Rishi",
-    "reward": 1077
+    "reward": 1077,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Sith Empire",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Scarred",
+    "name": "Jelka Thorn",
     "species": "Zabrak",
-    "location": "Korriban",
-    "reward": 1408
+    "location": "Nal Hutta",
+    "reward": 1408,
+    "job_type": "Dead Only",
+    "crime": "Sith Traitor",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
   },
   {
-    "name": "Vessa Drax Darkblade",
+    "name": "Vessa Drax",
     "species": "Zabrak",
     "location": "Makeb",
-    "reward": 1034
+    "reward": 1034,
+    "job_type": "Alive Preferred",
+    "crime": "Sith Traitor",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Red",
+    "name": "Jelka Thorn",
     "species": "Twi'lek",
-    "location": "Ilum",
-    "reward": 2823
+    "location": "Coruscant",
+    "reward": 2823,
+    "job_type": "Dead Only",
+    "crime": "Sabotage",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Coruscant near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Togruta",
     "location": "Alderaan",
-    "reward": 1394
+    "reward": 1394,
+    "job_type": "Intel Recovery",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Vix Rend the Red",
+    "name": "Vix Rend",
     "species": "Twi'lek",
-    "location": "Nar Shaddaa",
-    "reward": 2545
+    "location": "Alderaan",
+    "reward": 2545,
+    "job_type": "Escort Target",
+    "crime": "Jedi Killer",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Chiss",
-    "location": "Nar Shaddaa",
-    "reward": 1484
+    "location": "Nal Hutta",
+    "reward": 1484,
+    "job_type": "Intel Recovery",
+    "crime": "Assassination",
+    "affiliation": "Republic",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
   },
   {
-    "name": "Talik Marr Darkblade",
+    "name": "Talik Marr",
     "species": "Cyborg",
     "location": "Rishi",
-    "reward": 2995
+    "reward": 2995,
+    "job_type": "Alive Preferred",
+    "crime": "Republic Defector",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Karn Vos the Silent",
+    "name": "Karn Vos",
     "species": "Twi'lek",
-    "location": "Ord Mantell",
-    "reward": 811
+    "location": "Makeb",
+    "reward": 811,
+    "job_type": "Escort Target",
+    "crime": "Jedi Killer",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
     "name": "Tarn Vox",
     "species": "Chiss",
     "location": "Makeb",
-    "reward": 1937
+    "reward": 1937,
+    "job_type": "Alive Preferred",
+    "crime": "Artifact Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Tarn Vox of Korriban",
+    "name": "Tarn Vox",
     "species": "Rodian",
-    "location": "Hutta",
-    "reward": 865
+    "location": "Balmorra",
+    "reward": 865,
+    "job_type": "Dead Only",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Gorran Kreel the Scarred",
+    "name": "Gorran Kreel",
     "species": "Devaronian",
     "location": "Dromund Kaas",
-    "reward": 1845
+    "reward": 1845,
+    "job_type": "Escort Target",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Selra Venn Darkblade",
+    "name": "Selra Venn",
     "species": "Chiss",
     "location": "Makeb",
-    "reward": 867
+    "reward": 867,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
     "name": "Jorik Kaan",
     "species": "Chiss",
-    "location": "Hutta",
-    "reward": 1112
-  },
-  {
-    "name": "Lorik Vonn the Red",
-    "species": "Chiss",
-    "location": "Dromund Kaas",
-    "reward": 934
-  },
-  {
-    "name": "Tolan Reiss the Scarred",
-    "species": "Human",
-    "location": "Hutta",
-    "reward": 1452
-  },
-  {
-    "name": "Selra Venn the Scarred",
-    "species": "Nikto",
-    "location": "Hutta",
-    "reward": 1415
-  },
-  {
-    "name": "Kyra Thorne the Scarred",
-    "species": "Rodian",
-    "location": "Ilum",
-    "reward": 2822
-  },
-  {
-    "name": "Vek Dross the Scarred",
-    "species": "Togruta",
-    "location": "Alderaan",
-    "reward": 2662
-  },
-  {
-    "name": "Jelka Thorn the Scarred",
-    "species": "Twi'lek",
-    "location": "Alderaan",
-    "reward": 2829
-  },
-  {
-    "name": "Selra Venn of Korriban",
-    "species": "Twi'lek",
-    "location": "Nar Shaddaa",
-    "reward": 944
-  },
-  {
-    "name": "Rask Vano the Silent",
-    "species": "Human",
-    "location": "Dromund Kaas",
-    "reward": 1366
-  },
-  {
-    "name": "Nira Solari the Red",
-    "species": "Twi'lek",
-    "location": "Tatooine",
-    "reward": 2482
-  },
-  {
-    "name": "Lorik Vonn the Scarred",
-    "species": "Togruta",
-    "location": "Nar Shaddaa",
-    "reward": 998
-  },
-  {
-    "name": "Gorran Kreel the Red",
-    "species": "Zabrak",
-    "location": "Nar Shaddaa",
-    "reward": 1487
-  },
-  {
-    "name": "Myra Nol",
-    "species": "Chiss",
-    "location": "Rishi",
-    "reward": 1212
-  },
-  {
-    "name": "Talik Marr",
-    "species": "Twi'lek",
-    "location": "Ilum",
-    "reward": 2686
-  },
-  {
-    "name": "Karn Vos the Scarred",
-    "species": "Togruta",
-    "location": "Rishi",
-    "reward": 957
-  },
-  {
-    "name": "Vek Dross of Korriban",
-    "species": "Human",
-    "location": "Hutta",
-    "reward": 1317
-  },
-  {
-    "name": "Vek Dross the Red",
-    "species": "Devaronian",
-    "location": "Rishi",
-    "reward": 2638
-  },
-  {
-    "name": "Zarok Fell the Red",
-    "species": "Chiss",
-    "location": "Ilum",
-    "reward": 1277
-  },
-  {
-    "name": "Vix Rend Darkblade",
-    "species": "Devaronian",
     "location": "Makeb",
-    "reward": 2113
+    "reward": 1112,
+    "job_type": "Alive Preferred",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Scarred",
-    "species": "Rodian",
-    "location": "Ilum",
-    "reward": 1766
-  },
-  {
-    "name": "Myra Nol Darkblade",
-    "species": "Human",
-    "location": "Rishi",
-    "reward": 2727
-  },
-  {
-    "name": "Nira Solari Darkblade",
-    "species": "Mirialan",
-    "location": "Taris",
-    "reward": 1589
-  },
-  {
-    "name": "Selra Venn the Silent",
-    "species": "Togruta",
-    "location": "Balmorra",
-    "reward": 1425
-  },
-  {
-    "name": "Drex Malin the Silent",
-    "species": "Rodian",
-    "location": "Korriban",
-    "reward": 1271
-  },
-  {
-    "name": "Zarok Fell the Silent",
+    "name": "Lorik Vonn",
     "species": "Chiss",
-    "location": "Ilum",
-    "reward": 2233
-  },
-  {
-    "name": "Nira Solari the Red",
-    "species": "Twi'lek",
     "location": "Dromund Kaas",
-    "reward": 2901
+    "reward": 934,
+    "job_type": "Dead Only",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Tarn Vox the Silent",
-    "species": "Rodian",
-    "location": "Ilum",
-    "reward": 1713
-  },
-  {
-    "name": "Kyra Thorne",
-    "species": "Chiss",
-    "location": "Ord Mantell",
-    "reward": 1316
-  },
-  {
-    "name": "Talik Marr of Korriban",
-    "species": "Twi'lek",
-    "location": "Alderaan",
-    "reward": 2009
-  },
-  {
-    "name": "Shara Ren the Red",
-    "species": "Togruta",
-    "location": "Rishi",
-    "reward": 2885
-  },
-  {
-    "name": "Zarok Fell of Korriban",
-    "species": "Rodian",
-    "location": "Alderaan",
-    "reward": 1921
-  },
-  {
-    "name": "Kyra Thorne the Silent",
-    "species": "Zabrak",
-    "location": "Alderaan",
-    "reward": 1488
-  },
-  {
-    "name": "Rask Vano the Scarred",
-    "species": "Devaronian",
-    "location": "Rishi",
-    "reward": 2255
-  },
-  {
-    "name": "Talik Marr",
-    "species": "Devaronian",
-    "location": "Balmorra",
-    "reward": 1483
-  },
-  {
-    "name": "Myra Nol of Korriban",
-    "species": "Twi'lek",
-    "location": "Ilum",
-    "reward": 2195
-  },
-  {
-    "name": "Rask Vano the Silent",
-    "species": "Mirialan",
-    "location": "Tatooine",
-    "reward": 2061
-  },
-  {
-    "name": "Jelka Thorn the Red",
-    "species": "Rodian",
-    "location": "Hutta",
-    "reward": 848
-  },
-  {
-    "name": "Vessa Drax the Silent",
-    "species": "Nikto",
-    "location": "Alderaan",
-    "reward": 2255
-  },
-  {
-    "name": "Gorran Kreel the Red",
-    "species": "Twi'lek",
-    "location": "Ord Mantell",
-    "reward": 1370
-  },
-  {
-    "name": "Drex Malin the Silent",
-    "species": "Mirialan",
-    "location": "Ord Mantell",
-    "reward": 804
-  },
-  {
-    "name": "Myra Nol",
-    "species": "Twi'lek",
-    "location": "Hutta",
-    "reward": 2696
-  },
-  {
-    "name": "Jelka Thorn the Scarred",
+    "name": "Tolan Reiss",
     "species": "Human",
-    "location": "Dromund Kaas",
-    "reward": 2023
-  },
-  {
-    "name": "Karn Vos",
-    "species": "Nikto",
-    "location": "Korriban",
-    "reward": 2726
-  },
-  {
-    "name": "Karn Vos the Red",
-    "species": "Rodian",
-    "location": "Makeb",
-    "reward": 2514
-  },
-  {
-    "name": "Shara Ren the Red",
-    "species": "Devaronian",
-    "location": "Tatooine",
-    "reward": 2917
-  },
-  {
-    "name": "Rask Vano",
-    "species": "Togruta",
-    "location": "Nar Shaddaa",
-    "reward": 2272
-  },
-  {
-    "name": "Vix Rend Darkblade",
-    "species": "Mirialan",
-    "location": "Rishi",
-    "reward": 2101
-  },
-  {
-    "name": "Rask Vano Darkblade",
-    "species": "Zabrak",
-    "location": "Ord Mantell",
-    "reward": 2249
-  },
-  {
-    "name": "Zarok Fell Darkblade",
-    "species": "Togruta",
     "location": "Balmorra",
-    "reward": 944
-  },
-  {
-    "name": "Gorran Kreel",
-    "species": "Zabrak",
-    "location": "Dromund Kaas",
-    "reward": 1664
-  },
-  {
-    "name": "Jelka Thorn the Silent",
-    "species": "Human",
-    "location": "Makeb",
-    "reward": 1482
-  },
-  {
-    "name": "Zarok Fell the Red",
-    "species": "Twi'lek",
-    "location": "Tatooine",
-    "reward": 2570
+    "reward": 1452,
+    "job_type": "Intel Recovery",
+    "crime": "Espionage",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
     "name": "Selra Venn",
     "species": "Nikto",
-    "location": "Tatooine",
-    "reward": 2176
+    "location": "Dromund Kaas",
+    "reward": 1415,
+    "job_type": "Capture Alive",
+    "crime": "Jedi Killer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "High",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Talik Marr the Red",
-    "species": "Mirialan",
-    "location": "Ord Mantell",
-    "reward": 2827
-  },
-  {
-    "name": "Lorik Vonn Darkblade",
-    "species": "Cyborg",
-    "location": "Hutta",
-    "reward": 1956
-  },
-  {
-    "name": "Gorran Kreel Darkblade",
-    "species": "Cyborg",
-    "location": "Rishi",
-    "reward": 2323
-  },
-  {
-    "name": "Rask Vano the Red",
-    "species": "Twi'lek",
-    "location": "Rishi",
-    "reward": 1906
-  },
-  {
-    "name": "Talik Marr the Red",
+    "name": "Kyra Thorne",
     "species": "Rodian",
-    "location": "Tatooine",
-    "reward": 1238
+    "location": "Alderaan",
+    "reward": 2822,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Independent",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Vix Rend Darkblade",
-    "species": "Devaronian",
-    "location": "Korriban",
-    "reward": 2255
+    "name": "Vek Dross",
+    "species": "Togruta",
+    "location": "Alderaan",
+    "reward": 2662,
+    "job_type": "Capture Alive",
+    "crime": "Espionage",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Karn Vos the Scarred",
-    "species": "Rodian",
-    "location": "Taris",
-    "reward": 2440
-  },
-  {
-    "name": "Vix Rend the Silent",
+    "name": "Jelka Thorn",
     "species": "Twi'lek",
-    "location": "Ord Mantell",
-    "reward": 2927
+    "location": "Alderaan",
+    "reward": 2829,
+    "job_type": "Alive Preferred",
+    "crime": "Assassination",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Rask Vano of Korriban",
+    "name": "Selra Venn",
     "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 944,
+    "job_type": "Alive Preferred",
+    "crime": "Republic Defector",
+    "affiliation": "Independent",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 1366,
+    "job_type": "Dead Only",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Nira Solari",
+    "species": "Twi'lek",
+    "location": "Dromund Kaas",
+    "reward": 2482,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Lorik Vonn",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 998,
+    "job_type": "Escort Target",
+    "crime": "Assassination",
+    "affiliation": "Republic",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Zabrak",
+    "location": "Alderaan",
+    "reward": 1487,
+    "job_type": "Alive Preferred",
+    "crime": "Sabotage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Chiss",
     "location": "Rishi",
-    "reward": 1760
+    "reward": 1212,
+    "job_type": "Intel Recovery",
+    "crime": "Sith Traitor",
+    "affiliation": "Sith Empire",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
     "name": "Talik Marr",
     "species": "Twi'lek",
-    "location": "Korriban",
-    "reward": 1961
+    "location": "Makeb",
+    "reward": 2686,
+    "job_type": "Capture Alive",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Nira Solari the Scarred",
+    "name": "Karn Vos",
+    "species": "Togruta",
+    "location": "Rishi",
+    "reward": 957,
+    "job_type": "Dead Only",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Vek Dross",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 1317,
+    "job_type": "Alive Preferred",
+    "crime": "Assassination",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Vek Dross",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 2638,
+    "job_type": "Intel Recovery",
+    "crime": "Smuggling",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Zarok Fell",
+    "species": "Chiss",
+    "location": "Nal Hutta",
+    "reward": 1277,
+    "job_type": "Alive Preferred",
+    "crime": "Artifact Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
+  },
+  {
+    "name": "Vix Rend",
+    "species": "Devaronian",
+    "location": "Makeb",
+    "reward": 2113,
+    "job_type": "Alive Preferred",
+    "crime": "Massacre",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Jelka Thorn",
+    "species": "Rodian",
+    "location": "Makeb",
+    "reward": 1766,
+    "job_type": "Alive Preferred",
+    "crime": "Sith Traitor",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Human",
+    "location": "Rishi",
+    "reward": 2727,
+    "job_type": "Dead Only",
+    "crime": "Massacre",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Nira Solari",
+    "species": "Mirialan",
+    "location": "Alderaan",
+    "reward": 1589,
+    "job_type": "Alive Preferred",
+    "crime": "Artifact Theft",
+    "affiliation": "Independent",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Extreme",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Selra Venn",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 1425,
+    "job_type": "Dead Only",
+    "crime": "Artifact Theft",
+    "affiliation": "Independent",
+    "known_skills": "Stealth Operative",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Drex Malin",
+    "species": "Rodian",
+    "location": "Rishi",
+    "reward": 1271,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Zarok Fell",
+    "species": "Chiss",
+    "location": "Alderaan",
+    "reward": 2233,
+    "job_type": "Capture Alive",
+    "crime": "Sabotage",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Nira Solari",
+    "species": "Twi'lek",
+    "location": "Dromund Kaas",
+    "reward": 2901,
+    "job_type": "Escort Target",
+    "crime": "Sabotage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Tarn Vox",
+    "species": "Rodian",
+    "location": "Alderaan",
+    "reward": 1713,
+    "job_type": "Intel Recovery",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Kyra Thorne",
+    "species": "Chiss",
+    "location": "Dromund Kaas",
+    "reward": 1316,
+    "job_type": "Dead Only",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2009,
+    "job_type": "Capture Alive",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Shara Ren",
+    "species": "Togruta",
+    "location": "Rishi",
+    "reward": 2885,
+    "job_type": "Escort Target",
+    "crime": "Smuggling",
+    "affiliation": "Sith Empire",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Zarok Fell",
+    "species": "Rodian",
+    "location": "Alderaan",
+    "reward": 1921,
+    "job_type": "Alive Preferred",
+    "crime": "Jedi Killer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Kyra Thorne",
     "species": "Zabrak",
-    "location": "Hutta",
-    "reward": 2650
+    "location": "Alderaan",
+    "reward": 1488,
+    "job_type": "Escort Target",
+    "crime": "Jedi Killer",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Shara Ren the Red",
+    "name": "Rask Vano",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 2255,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Devaronian",
+    "location": "Balmorra",
+    "reward": 1483,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2195,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Mirialan",
+    "location": "Alderaan",
+    "reward": 2061,
+    "job_type": "Capture Alive",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Jelka Thorn",
+    "species": "Rodian",
+    "location": "Coruscant",
+    "reward": 848,
+    "job_type": "Intel Recovery",
+    "crime": "Smuggling",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Coruscant near the outskirts"
+  },
+  {
+    "name": "Vessa Drax",
+    "species": "Nikto",
+    "location": "Alderaan",
+    "reward": 2255,
+    "job_type": "Intel Recovery",
+    "crime": "Artifact Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Twi'lek",
+    "location": "Nal Hutta",
+    "reward": 1370,
+    "job_type": "Intel Recovery",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Nal Hutta near the outskirts"
+  },
+  {
+    "name": "Drex Malin",
+    "species": "Mirialan",
+    "location": "Rishi",
+    "reward": 804,
+    "job_type": "Escort Target",
+    "crime": "Espionage",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2696,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Jelka Thorn",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 2023,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Karn Vos",
+    "species": "Nikto",
+    "location": "Balmorra",
+    "reward": 2726,
+    "job_type": "Escort Target",
+    "crime": "Sabotage",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Karn Vos",
+    "species": "Rodian",
+    "location": "Makeb",
+    "reward": 2514,
+    "job_type": "Escort Target",
+    "crime": "Sabotage",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Shara Ren",
+    "species": "Devaronian",
+    "location": "Coruscant",
+    "reward": 2917,
+    "job_type": "Capture Alive",
+    "crime": "Slave Trafficking",
+    "affiliation": "Republic",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Coruscant near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Togruta",
+    "location": "Rishi",
+    "reward": 2272,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Vix Rend",
+    "species": "Mirialan",
+    "location": "Rishi",
+    "reward": 2101,
+    "job_type": "Escort Target",
+    "crime": "Smuggling",
+    "affiliation": "Republic",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Zabrak",
+    "location": "Dromund Kaas",
+    "reward": 2249,
+    "job_type": "Intel Recovery",
+    "crime": "Espionage",
+    "affiliation": "Republic",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Low",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Zarok Fell",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 944,
+    "job_type": "Escort Target",
+    "crime": "Assassination",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Force-sensitive",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Zabrak",
+    "location": "Dromund Kaas",
+    "reward": 1664,
+    "job_type": "Intel Recovery",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Jelka Thorn",
+    "species": "Human",
+    "location": "Makeb",
+    "reward": 1482,
+    "job_type": "Alive Preferred",
+    "crime": "Slave Trafficking",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Zarok Fell",
+    "species": "Twi'lek",
+    "location": "Makeb",
+    "reward": 2570,
+    "job_type": "Dead Only",
+    "crime": "Slave Trafficking",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Selra Venn",
+    "species": "Nikto",
+    "location": "Alderaan",
+    "reward": 2176,
+    "job_type": "Capture Alive",
+    "crime": "Sabotage",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Mirialan",
+    "location": "Rishi",
+    "reward": 2827,
+    "job_type": "Escort Target",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Lorik Vonn",
+    "species": "Cyborg",
+    "location": "Makeb",
+    "reward": 1956,
+    "job_type": "Escort Target",
+    "crime": "Slave Trafficking",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Cyborg",
+    "location": "Rishi",
+    "reward": 2323,
+    "job_type": "Dead Only",
+    "crime": "Artifact Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Twi'lek",
+    "location": "Rishi",
+    "reward": 1906,
+    "job_type": "Escort Target",
+    "crime": "Jedi Killer",
+    "affiliation": "Republic",
+    "known_skills": "Force-sensitive",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Rodian",
+    "location": "Dromund Kaas",
+    "reward": 1238,
+    "job_type": "Alive Preferred",
+    "crime": "Jedi Killer",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Vix Rend",
+    "species": "Devaronian",
+    "location": "Balmorra",
+    "reward": 2255,
+    "job_type": "Capture Alive",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Balmorra near the outskirts"
+  },
+  {
+    "name": "Karn Vos",
+    "species": "Rodian",
+    "location": "Makeb",
+    "reward": 2440,
+    "job_type": "Alive Preferred",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Republic",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Vix Rend",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2927,
+    "job_type": "Escort Target",
+    "crime": "Artifact Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Sniper",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Alderaan near the outskirts"
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Twi'lek",
+    "location": "Rishi",
+    "reward": 1760,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Twi'lek",
+    "location": "Dromund Kaas",
+    "reward": 1961,
+    "job_type": "Intel Recovery",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
+  },
+  {
+    "name": "Nira Solari",
+    "species": "Zabrak",
+    "location": "Makeb",
+    "reward": 2650,
+    "job_type": "Dead Only",
+    "crime": "Assassination",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
+  },
+  {
+    "name": "Shara Ren",
     "species": "Nikto",
     "location": "Dromund Kaas",
-    "reward": 2158
+    "reward": 2158,
+    "job_type": "Dead Only",
+    "crime": "Sabotage",
+    "affiliation": "Independent",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Vix Rend of Korriban",
+    "name": "Vix Rend",
     "species": "Twi'lek",
     "location": "Alderaan",
-    "reward": 2858
+    "reward": 2858,
+    "job_type": "Intel Recovery",
+    "crime": "Espionage",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Stealth Operative",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Gorran Kreel the Red",
+    "name": "Gorran Kreel",
     "species": "Twi'lek",
     "location": "Alderaan",
-    "reward": 2266
+    "reward": 2266,
+    "job_type": "Alive Preferred",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Medium",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
     "name": "Gorran Kreel",
     "species": "Devaronian",
-    "location": "Ilum",
-    "reward": 1809
+    "location": "Balmorra",
+    "reward": 1809,
+    "job_type": "Dead Only",
+    "crime": "Massacre",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
     "name": "Rask Vano",
     "species": "Nikto",
     "location": "Alderaan",
-    "reward": 2003
+    "reward": 2003,
+    "job_type": "Dead Only",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Vix Rend Darkblade",
+    "name": "Vix Rend",
     "species": "Chiss",
     "location": "Dromund Kaas",
-    "reward": 1939
+    "reward": 1939,
+    "job_type": "Intel Recovery",
+    "crime": "Espionage",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Mirialan",
-    "location": "Korriban",
-    "reward": 2212
+    "location": "Coruscant",
+    "reward": 2212,
+    "job_type": "Escort Target",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Coruscant near the outskirts"
   },
   {
-    "name": "Vek Dross of Korriban",
+    "name": "Vek Dross",
     "species": "Twi'lek",
-    "location": "Ilum",
-    "reward": 2613
+    "location": "Makeb",
+    "reward": 2613,
+    "job_type": "Escort Target",
+    "crime": "Slave Trafficking",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Explosives Expert",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Red",
+    "name": "Jorik Kaan",
     "species": "Togruta",
-    "location": "Korriban",
-    "reward": 1187
+    "location": "Coruscant",
+    "reward": 1187,
+    "job_type": "Dead Only",
+    "crime": "Artifact Theft",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Coruscant near the outskirts"
   },
   {
-    "name": "Bran Durek of Korriban",
+    "name": "Bran Durek",
     "species": "Togruta",
     "location": "Balmorra",
-    "reward": 1887
+    "reward": 1887,
+    "job_type": "Capture Alive",
+    "crime": "Sith Traitor",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Myra Nol the Scarred",
+    "name": "Myra Nol",
     "species": "Twi'lek",
     "location": "Dromund Kaas",
-    "reward": 1608
+    "reward": 1608,
+    "job_type": "Capture Alive",
+    "crime": "Jedi Killer",
+    "affiliation": "Sith Empire",
+    "known_skills": "Slicer",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Red",
+    "name": "Jorik Kaan",
     "species": "Human",
     "location": "Makeb",
-    "reward": 969
+    "reward": 969,
+    "job_type": "Alive Preferred",
+    "crime": "Slave Trafficking",
+    "affiliation": "Sith Empire",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Rask Vano the Scarred",
+    "name": "Rask Vano",
     "species": "Rodian",
     "location": "Dromund Kaas",
-    "reward": 2004
+    "reward": 2004,
+    "job_type": "Alive Preferred",
+    "crime": "Artifact Theft",
+    "affiliation": "Hutt Cartel",
+    "known_skills": "Sniper",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
     "name": "Myra Nol",
     "species": "Chiss",
     "location": "Makeb",
-    "reward": 2724
+    "reward": 2724,
+    "job_type": "Intel Recovery",
+    "crime": "Sith Traitor",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
-    "name": "Shara Ren the Silent",
+    "name": "Shara Ren",
     "species": "Twi'lek",
     "location": "Alderaan",
-    "reward": 2289
+    "reward": 2289,
+    "job_type": "Intel Recovery",
+    "crime": "Artifact Theft",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Scarred",
+    "name": "Jelka Thorn",
     "species": "Zabrak",
     "location": "Makeb",
-    "reward": 2484
+    "reward": 2484,
+    "job_type": "Alive Preferred",
+    "crime": "Smuggling",
+    "affiliation": "Republic",
+    "known_skills": "Sniper",
+    "difficulty": "Low",
+    "bonus": "Cartel Favor Token",
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
     "name": "Bran Durek",
     "species": "Togruta",
     "location": "Makeb",
-    "reward": 1511
+    "reward": 1511,
+    "job_type": "Intel Recovery",
+    "crime": "Jedi Killer",
+    "affiliation": "Republic",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": null,
+    "last_seen": "Last seen on Makeb near the outskirts"
   },
   {
     "name": "Bran Durek",
     "species": "Cyborg",
-    "location": "Tatooine",
-    "reward": 1295
+    "location": "Coruscant",
+    "reward": 1295,
+    "job_type": "Dead Only",
+    "crime": "Sabotage",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Coruscant near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Mirialan",
-    "location": "Nar Shaddaa",
-    "reward": 2232
+    "location": "Rishi",
+    "reward": 2232,
+    "job_type": "Intel Recovery",
+    "crime": "Assassination",
+    "affiliation": "Independent",
+    "known_skills": "Negotiator",
+    "difficulty": "High",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Zabrak",
     "location": "Alderaan",
-    "reward": 1839
+    "reward": 1839,
+    "job_type": "Capture Alive",
+    "crime": "Smuggling",
+    "affiliation": "Independent",
+    "known_skills": "Explosives Expert",
+    "difficulty": "Extreme",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Bran Durek the Silent",
+    "name": "Bran Durek",
     "species": "Devaronian",
-    "location": "Nar Shaddaa",
-    "reward": 1513
+    "location": "Rishi",
+    "reward": 1513,
+    "job_type": "Dead Only",
+    "crime": "Republic Defector",
+    "affiliation": "Sith Empire",
+    "known_skills": "Force-sensitive",
+    "difficulty": "Medium",
+    "bonus": null,
+    "last_seen": "Last seen on Rishi near the outskirts"
   },
   {
-    "name": "Jorik Kaan the Silent",
+    "name": "Jorik Kaan",
     "species": "Twi'lek",
-    "location": "Korriban",
-    "reward": 2713
+    "location": "Dromund Kaas",
+    "reward": 2713,
+    "job_type": "Escort Target",
+    "crime": "Assassination",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Extreme",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   },
   {
-    "name": "Rask Vano of Korriban",
+    "name": "Rask Vano",
     "species": "Rodian",
     "location": "Balmorra",
-    "reward": 1995
+    "reward": 1995,
+    "job_type": "Alive Preferred",
+    "crime": "High-Value Intel Theft",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "Low",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
     "name": "Drex Malin",
     "species": "Mirialan",
-    "location": "Tatooine",
-    "reward": 792
+    "location": "Alderaan",
+    "reward": 792,
+    "job_type": "Alive Preferred",
+    "crime": "Hutt Enforcer",
+    "affiliation": "Independent",
+    "known_skills": "Slicer",
+    "difficulty": "High",
+    "bonus": "Sith Commendation",
+    "last_seen": "Last seen on Alderaan near the outskirts"
   },
   {
-    "name": "Jelka Thorn the Red",
+    "name": "Jelka Thorn",
     "species": "Zabrak",
     "location": "Balmorra",
-    "reward": 1430
+    "reward": 1430,
+    "job_type": "Intel Recovery",
+    "crime": "Republic Defector",
+    "affiliation": "Sith Empire",
+    "known_skills": "Stealth Operative",
+    "difficulty": "Medium",
+    "bonus": "Holocron Fragment",
+    "last_seen": "Last seen on Balmorra near the outskirts"
   },
   {
-    "name": "Shara Ren the Silent",
+    "name": "Shara Ren",
     "species": "Human",
     "location": "Dromund Kaas",
-    "reward": 1588
+    "reward": 1588,
+    "job_type": "Alive Preferred",
+    "crime": "Espionage",
+    "affiliation": "Sith Empire",
+    "known_skills": "Negotiator",
+    "difficulty": "Low",
+    "bonus": "Prototype Weapon",
+    "last_seen": "Last seen on Dromund Kaas near the outskirts"
   }
 ]
