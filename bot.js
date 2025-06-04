@@ -18,6 +18,7 @@ const allowedRoleId = '1373832351762612234';
 const allowedBotIds = ['1379634780534214676'];
 const bountyChannelId = '1373842052730720296';
 const bountyList = JSON.parse(fs.readFileSync('bounties.json'));
+const encounterList = JSON.parse(fs.readFileSync('swtor_encounters_500.json'));
 const users = {};
 let activeBounty = null;
 
@@ -64,7 +65,7 @@ function postBounty() {
 
   client.channels.fetch(bountyChannelId).then(channel => {
     channel.send({ embeds: [embed] }).then(msg => {
-      activeBounty = { id: msg.id, claimed: false, message: msg };
+      activeBounty = { id: msg.id, claimed: false };
       msg.react('🎯');
 
       const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
@@ -81,7 +82,10 @@ function postBounty() {
         if (!activeBounty.claimed) {
           msg.reply('⏳ Bounty expired. No one claimed it.');
           msg.delete().catch(() => {});
+        } else {
+          msg.delete().catch(() => {});
         }
+        activeBounty = null;
       });
     });
   });
@@ -152,20 +156,26 @@ client.on('messageCreate', async (message) => {
     if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!givecreditsto @user <amount>`');
     const targetUser = getUser(target.id);
     targetUser.credits += amount;
-    return message.reply(`🏦 Gave **${amount} credits** to ${target.username}.`);
+    return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
   if (command === 'bountyclaim') {
-    if (activeBounty && activeBounty.claimed && activeBounty.message) {
-      activeBounty.message.delete().catch(() => {});
-    }
-    return message.reply(`<@&${allowedRoleId}> 🔔 <@${message.author.id}> has completed their bounty and is ready for reward!`);
+    message.reply(`📣 <@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
   }
 
   if (command === 'forcebounty') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
     postBounty();
     return message.reply('📡 Manual bounty posted.');
+  }
+
+  if (command === 'encounter') {
+    const encounter = encounterList[Math.floor(Math.random() * encounterList.length)];
+    const embed = new EmbedBuilder()
+      .setTitle(`⚔️ Encounter: ${encounter.name}`)
+      .setDescription(`**Type:** ${encounter.type}\n**Location:** ${encounter.location}\n**CR:** ${encounter.cr}\n**Details:** ${encounter.description}`)
+      .setColor('DarkPurple');
+    return message.reply({ embeds: [embed] });
   }
 
   if (command === 'roll') {
@@ -208,6 +218,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
