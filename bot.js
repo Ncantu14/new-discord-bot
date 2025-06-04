@@ -80,7 +80,9 @@ function postBounty() {
 
       collector.on('end', () => {
         if (!activeBounty.claimed) {
-          msg.reply('⏳ Bounty expired. No one claimed it.');
+          msg.reply('⏳ Bounty expired. No one claimed it.').then(expiredMsg => {
+            setTimeout(() => expiredMsg.delete().catch(() => {}), 5000);
+          });
           msg.delete().catch(() => {});
         } else {
           msg.delete().catch(() => {});
@@ -225,6 +227,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
