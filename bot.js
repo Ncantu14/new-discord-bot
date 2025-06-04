@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs');
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -6,10 +7,8 @@ const client = new Client({
 
 const token = process.env.DISCORD_TOKEN;
 const prefix = '!';
-
 const allowedRoleId = '1373832351762612234'; // Admin role
 const allowedBotIds = ['1379634780534214676']; // Trusted bot (e.g. Cantina bot)
-
 const users = {}; // XP + credits tracker
 
 function getUser(userId) {
@@ -50,142 +49,95 @@ function hasAdminRole(member, authorId) {
   return member?.roles?.cache?.has(allowedRoleId) || allowedBotIds.includes(authorId);
 }
 
-const suits = ['Sabers', 'Flasks', 'Staves', 'Coins'];
-const deck = [];
-for (let i = -10; i <= 10; i++) {
-  if (i === 0) deck.push({ name: 'The Idiot', value: 0 });
-  else for (let suit of suits) deck.push({ name: `${i} of ${suit}`, value: i });
+// Bounty system config
+const BOUNTY_CHANNEL_ID = '1373842052730720296';
+const BOUNTY_POST_INTERVAL = 1000 * 60 * 30; // 30 minutes
+const BOUNTY_EXPIRE_TIMEOUT = 1000 * 60 * 5; // 5 minutes
+let activeBounty = null;
+
+function loadBounties() {
+  try {
+    const data = fs.readFileSync('bounties.json', 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Failed to load bounties.json:', err);
+    return [];
+  }
 }
-function drawCard() {
-  return deck[Math.floor(Math.random() * deck.length)];
+
+function getRandomBounty() {
+  const bounties = loadBounties();
+  if (bounties.length === 0) return null;
+  return bounties[Math.floor(Math.random() * bounties.length)];
 }
-function rollSpike() {
-  return [Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)];
+
+async function postBounty() {
+  if (!client.isReady()) return;
+  const bounty = getRandomBounty();
+  if (!bounty) return;
+
+  const channel = await client.channels.fetch(BOUNTY_CHANNEL_ID);
+  if (!channel) return;
+
+  const embed = {
+    title: `🚨 Bounty Posted: ${bounty.name}`,
+    description: `**Species**: ${bounty.species}\n**Location**: ${bounty.location}\n**Reward**: ${bounty.reward} credits`,
+    color: 0xff0000,
+    footer: { text: 'Use !bountyclaim to collect. Expires in 5 minutes.' }
+  };
+
+  const bountyMsg = await channel.send({ embeds: [embed] });
+  activeBounty = {
+    messageId: bountyMsg.id,
+    channelId: BOUNTY_CHANNEL_ID,
+    bounty: bounty,
+    claimed: false
+  };
+
+  // Auto-delete after timeout
+  setTimeout(async () => {
+    if (!activeBounty.claimed) {
+      try {
+        await channel.messages.delete(bountyMsg.id);
+        activeBounty = null;
+      } catch (err) {
+        console.error('Error deleting expired bounty:', err);
+      }
+    }
+  }, BOUNTY_EXPIRE_TIMEOUT);
 }
-function calculateHand(hand) {
-  return hand.reduce((sum, card) => sum + card.value, 0);
-}
+
+client.once('ready', () => {
+  console.log(`✅ Bot is running! Logged in as ${client.user.tag}`);
+  setInterval(postBounty, BOUNTY_POST_INTERVAL);
+});
 
 client.on('messageCreate', async (message) => {
   if (message.author.bot || !message.content.startsWith(prefix)) return;
-
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
   const user = getUser(message.author.id);
   user.id = message.author.id;
 
-  // Profile
-  if (command === 'profile') {
-    return message.reply(
-      `📄 **Profile: ${message.author.username}**\n` +
-      `XP: ${user.xp}\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige: ${user.prestige} (${user.prestigeClass})`
-    );
-  }
-
-  // Balance
-  if (command === 'balance') {
-    return message.reply(`💳 You have **${user.credits} credits**.`);
-  }
-
-  // Add XP
-  if (command === 'addxp') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const amount = parseInt(args[0]);
-    if (isNaN(amount)) return message.reply('Invalid amount.');
-    user.xp += amount;
-    let msg = `✅ Added ${amount} XP.`;
-    const lvl = checkLevelUp(user);
-    const pres = checkPrestige(user);
-    if (lvl) msg += `\n${lvl}`;
-    if (pres) msg += `\n${pres}`;
-    return message.reply(msg);
-  }
-
-  // Remove XP
-  if (command === 'removexp') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const amount = parseInt(args[0]);
-    if (isNaN(amount)) return message.reply('Invalid amount.');
-    user.xp = Math.max(0, user.xp - amount);
-    return message.reply(`🗑️ Removed ${amount} XP.`);
-  }
-
-  // Give credits
-  if (command === 'give') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const target = message.mentions.users.first();
-    const amount = parseInt(args[1]);
-    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!give @user <amount>`');
-    if (user.credits < amount) return message.reply("Not enough credits.");
-    const targetUser = getUser(target.id);
-    user.credits -= amount;
-    targetUser.credits += amount;
-    return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
-  }
-
-  // Set credits
-  if (command === 'setcredits') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const target = message.mentions.users.first();
-    const amount = parseInt(args[1]);
-    if (!target || isNaN(amount)) return message.reply('Usage: `!setcredits @user <amount>`');
-    getUser(target.id).credits = amount;
-    return message.reply(`✅ Set ${target.username}'s credits to ${amount}.`);
-  }
-
-  // Slots game
-  if (command === 'slots') {
-    const bet = parseInt(args[0]);
-    if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!slots <amount>`');
-    if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
-
-    const symbols = ['🍒', '🍋', '🍇', '💎', '7️⃣', '🔔'];
-    const result = [0, 1, 2].map(() => symbols[Math.floor(Math.random() * symbols.length)]);
-    const win = result.every(s => s === result[0]);
-
-    if (win) {
-      const winnings = bet * 5;
-      user.credits += winnings;
-      return message.reply(`🎰 ${result.join(' ')}\n💰 Jackpot! You win **${winnings} credits**!`);
-    } else {
-      user.credits -= bet;
-      return message.reply(`🎰 ${result.join(' ')}\n😢 You lost **${bet} credits**.`);
-    }
-  }
-
-  // Dice Roller
-  if (command === 'roll') {
-    const input = args.join('').toLowerCase(); // e.g., d20+5
-    const match = input.match(/d(\d+)([+-]\d+)?/);
-
-    if (!match) {
-      return message.reply('🎲 Invalid format. Try `!roll d20`, `!roll d100+5`, or `!roll d6-1`.');
+  if (command === 'bountyclaim') {
+    if (!activeBounty || activeBounty.claimed) {
+      return message.reply('❌ No active bounty to claim.');
     }
 
-    const sides = parseInt(match[1]);
-    const modifier = parseInt(match[2]) || 0;
-
-    if (isNaN(sides) || sides <= 0) {
-      return message.reply('❌ Invalid number of sides. Use something like `d20`, `d6`, `d100`, etc.');
+    const channel = await client.channels.fetch(activeBounty.channelId);
+    try {
+      const msg = await channel.messages.fetch(activeBounty.messageId);
+      await msg.delete();
+    } catch (err) {
+      console.error('Error deleting claimed bounty:', err);
     }
 
-    const roll = Math.ceil(Math.random() * sides);
-    const total = roll + modifier;
-    const modifierText = modifier !== 0 ? (modifier > 0 ? ` + ${modifier}` : ` - ${Math.abs(modifier)}`) : '';
-    return message.reply(`🎲 Rolled **1d${sides}${modifierText}** → 🎯 **${roll}**${modifier !== 0 ? ` → Total: **${total}**` : ''}`);
+    user.credits += activeBounty.bounty.reward;
+    activeBounty.claimed = true;
+
+    return message.reply(`🎯 You have successfully claimed the bounty on **${activeBounty.bounty.name}** and earned **${activeBounty.bounty.reward} credits**.`);
   }
 });
-
-client.once('ready', () => {
-  console.log(`✅ Bot is running! Logged in as ${client.user.tag}`);
-});
-
-process.on('SIGINT', () => {
-  console.log('👋 Bot shutting down...');
-  process.exit();
-});
-
-client.login(token);
 
 
 
