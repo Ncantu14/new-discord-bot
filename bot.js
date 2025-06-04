@@ -1,9 +1,15 @@
 require('dotenv').config();
 const fs = require('fs');
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, Partials } = require('discord.js');
 
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessageReactions
+  ],
+  partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 });
 
 const token = process.env.DISCORD_TOKEN;
@@ -50,10 +56,6 @@ function hasAdminRole(member, authorId) {
 function postBounty() {
   if (!client.channels.cache.has(bountyChannelId)) return;
   const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
-  sendBountyEmbed(bounty);
-}
-
-function sendBountyEmbed(bounty) {
   const embed = new EmbedBuilder()
     .setTitle(`📡 New Bounty Posted!`)
     .setDescription(`🎯 **Target:** ${bounty.name}  \n🧬 **Species:** ${bounty.species}  \n📍 **Last Known Location:** ${bounty.location}  \n💰 **Reward:** ${bounty.reward} credits`)
@@ -65,16 +67,21 @@ function sendBountyEmbed(bounty) {
       activeBounty = { id: msg.id, claimed: false };
       msg.react('🎯');
 
-      const collector = msg.createReactionCollector({ time: 5 * 60 * 1000 });
+      const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
+      const collector = msg.createReactionCollector({ filter, time: 5 * 60 * 1000 });
+
       collector.on('collect', (reaction, user) => {
-        if (!activeBounty.claimed && reaction.emoji.name === '🎯' && !user.bot) {
+        if (!activeBounty.claimed) {
           activeBounty.claimed = true;
           msg.reply(`🛡️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
         }
       });
 
       collector.on('end', () => {
-        if (!activeBounty.claimed) msg.delete().catch(() => {});
+        if (!activeBounty.claimed) {
+          msg.reply('⏳ Bounty expired. No one claimed it.');
+          msg.delete().catch(() => {});
+        }
         activeBounty = null;
       });
     });
@@ -145,9 +152,8 @@ client.on('messageCreate', async (message) => {
 
   if (command === 'forcebounty') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
-    sendBountyEmbed(bounty);
-    return message.reply('📡 Bounty manually posted.');
+    postBounty();
+    return message.reply('📡 Manual bounty posted.');
   }
 
   if (command === 'roll') {
@@ -190,5 +196,6 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
