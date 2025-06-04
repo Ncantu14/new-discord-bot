@@ -44,18 +44,19 @@ function checkPrestige(user) {
 }
 
 function hasAdminRole(member, authorId) {
-  return member?.roles?.cache?.has(allowedRoleId) || allowedBotIds.includes(authorId);
+  return member?.roles?.cache?.has(allowedRoleId) || allowedBotIds.includes(authorId) || authorId === allowedRoleId;
 }
 
 function postBounty() {
   if (!client.channels.cache.has(bountyChannelId)) return;
   const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
+  sendBountyEmbed(bounty);
+}
+
+function sendBountyEmbed(bounty) {
   const embed = new EmbedBuilder()
     .setTitle(`📡 New Bounty Posted!`)
-    .setDescription(`🎯 **Target:** ${bounty.name}  
-🧬 **Species:** ${bounty.species}  
-📍 **Last Known Location:** ${bounty.location}  
-💰 **Reward:** ${bounty.reward} credits`)
+    .setDescription(`🎯 **Target:** ${bounty.name}  \n🧬 **Species:** ${bounty.species}  \n📍 **Last Known Location:** ${bounty.location}  \n💰 **Reward:** ${bounty.reward} credits`)
     .setFooter({ text: `First to react claims the bounty.` })
     .setColor('DarkRed');
 
@@ -117,8 +118,36 @@ client.on('messageCreate', async (message) => {
     return message.reply(`🗑️ Removed ${amount} XP.`);
   }
 
+  if (command === 'setcredits') {
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    const target = message.mentions.users.first();
+    const amount = parseInt(args[1]);
+    if (!target || isNaN(amount)) return message.reply('Usage: `!setcredits @user <amount>`');
+    getUser(target.id).credits = amount;
+    return message.reply(`✅ Set ${target.username}'s credits to ${amount}.`);
+  }
+
+  if (command === 'give') {
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    const target = message.mentions.users.first();
+    const amount = parseInt(args[1]);
+    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!give @user <amount>`');
+    if (user.credits < amount) return message.reply('❌ You don’t have enough credits.');
+    const targetUser = getUser(target.id);
+    user.credits -= amount;
+    targetUser.credits += amount;
+    return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
+  }
+
   if (command === 'bountyclaim') {
     return message.reply('🔧 Bounty claims are currently manual. Please notify a mod for approval.');
+  }
+
+  if (command === 'forcebounty') {
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
+    sendBountyEmbed(bounty);
+    return message.reply('📡 Bounty manually posted.');
   }
 
   if (command === 'roll') {
@@ -161,4 +190,5 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
