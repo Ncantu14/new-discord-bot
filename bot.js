@@ -64,7 +64,7 @@ function postBounty() {
 
   client.channels.fetch(bountyChannelId).then(channel => {
     channel.send({ embeds: [embed] }).then(msg => {
-      activeBounty = { id: msg.id, claimed: false, claimer: null };
+      activeBounty = { id: msg.id, claimed: false, message: msg };
       msg.react('🎯');
 
       const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
@@ -73,7 +73,6 @@ function postBounty() {
       collector.on('collect', (reaction, user) => {
         if (!activeBounty.claimed) {
           activeBounty.claimed = true;
-          activeBounty.claimer = user.id;
           msg.reply(`🛡️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
         }
       });
@@ -83,7 +82,6 @@ function postBounty() {
           msg.reply('⏳ Bounty expired. No one claimed it.');
           msg.delete().catch(() => {});
         }
-        activeBounty = null;
       });
     });
   });
@@ -147,10 +145,21 @@ client.on('messageCreate', async (message) => {
     return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
+  if (command === 'givecreditsto') {
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    const target = message.mentions.users.first();
+    const amount = parseInt(args[1]);
+    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!givecreditsto @user <amount>`');
+    const targetUser = getUser(target.id);
+    targetUser.credits += amount;
+    return message.reply(`🏦 Gave **${amount} credits** to ${target.username}.`);
+  }
+
   if (command === 'bountyclaim') {
-    if (!activeBounty || !activeBounty.claimer) return message.reply('⚠️ No active bounty claim to process.');
-    const rolePing = `<@&${allowedRoleId}>`;
-    return message.reply(`${rolePing} – Bounty claimed by <@${activeBounty.claimer}>. Please verify and reward accordingly.`);
+    if (activeBounty && activeBounty.claimed && activeBounty.message) {
+      activeBounty.message.delete().catch(() => {});
+    }
+    return message.reply(`<@&${allowedRoleId}> 🔔 <@${message.author.id}> has completed their bounty and is ready for reward!`);
   }
 
   if (command === 'forcebounty') {
