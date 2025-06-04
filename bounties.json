@@ -1,0 +1,902 @@
+[
+  {
+    "name": "Karn Vos the Silent",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 780
+  },
+  {
+    "name": "Talik Marr of Korriban",
+    "species": "Chiss",
+    "location": "Dromund Kaas",
+    "reward": 1042
+  },
+  {
+    "name": "Jelka Thorn the Silent",
+    "species": "Rodian",
+    "location": "Balmorra",
+    "reward": 895
+  },
+  {
+    "name": "Myra Nol the Red",
+    "species": "Chiss",
+    "location": "Ilum",
+    "reward": 2378
+  },
+  {
+    "name": "Kyra Thorne the Red",
+    "species": "Cyborg",
+    "location": "Alderaan",
+    "reward": 1034
+  },
+  {
+    "name": "Talik Marr the Red",
+    "species": "Twi'lek",
+    "location": "Balmorra",
+    "reward": 2195
+  },
+  {
+    "name": "Talik Marr of Korriban",
+    "species": "Cyborg",
+    "location": "Tatooine",
+    "reward": 1438
+  },
+  {
+    "name": "Lorik Vonn the Red",
+    "species": "Togruta",
+    "location": "Ord Mantell",
+    "reward": 785
+  },
+  {
+    "name": "Jelka Thorn",
+    "species": "Chiss",
+    "location": "Nar Shaddaa",
+    "reward": 2129
+  },
+  {
+    "name": "Myra Nol the Scarred",
+    "species": "Togruta",
+    "location": "Ilum",
+    "reward": 2522
+  },
+  {
+    "name": "Talik Marr the Scarred",
+    "species": "Nikto",
+    "location": "Taris",
+    "reward": 1644
+  },
+  {
+    "name": "Rask Vano the Silent",
+    "species": "Devaronian",
+    "location": "Hutta",
+    "reward": 1626
+  },
+  {
+    "name": "Rask Vano the Scarred",
+    "species": "Togruta",
+    "location": "Ord Mantell",
+    "reward": 1935
+  },
+  {
+    "name": "Selra Venn the Scarred",
+    "species": "Zabrak",
+    "location": "Ord Mantell",
+    "reward": 2802
+  },
+  {
+    "name": "Tarn Vox the Silent",
+    "species": "Twi'lek",
+    "location": "Makeb",
+    "reward": 2435
+  },
+  {
+    "name": "Shara Ren Darkblade",
+    "species": "Zabrak",
+    "location": "Ord Mantell",
+    "reward": 2902
+  },
+  {
+    "name": "Drex Malin",
+    "species": "Twi'lek",
+    "location": "Nar Shaddaa",
+    "reward": 1175
+  },
+  {
+    "name": "Myra Nol Darkblade",
+    "species": "Mirialan",
+    "location": "Tatooine",
+    "reward": 1658
+  },
+  {
+    "name": "Drex Malin of Korriban",
+    "species": "Nikto",
+    "location": "Dromund Kaas",
+    "reward": 2474
+  },
+  {
+    "name": "Myra Nol the Scarred",
+    "species": "Human",
+    "location": "Hutta",
+    "reward": 2202
+  },
+  {
+    "name": "Tarn Vox the Scarred",
+    "species": "Nikto",
+    "location": "Balmorra",
+    "reward": 1803
+  },
+  {
+    "name": "Vessa Drax of Korriban",
+    "species": "Human",
+    "location": "Hutta",
+    "reward": 2148
+  },
+  {
+    "name": "Lorik Vonn the Silent",
+    "species": "Togruta",
+    "location": "Taris",
+    "reward": 2933
+  },
+  {
+    "name": "Gorran Kreel the Silent",
+    "species": "Zabrak",
+    "location": "Hutta",
+    "reward": 1871
+  },
+  {
+    "name": "Vix Rend the Silent",
+    "species": "Mirialan",
+    "location": "Ilum",
+    "reward": 2035
+  },
+  {
+    "name": "Jelka Thorn the Red",
+    "species": "Nikto",
+    "location": "Dromund Kaas",
+    "reward": 1962
+  },
+  {
+    "name": "Karn Vos the Red",
+    "species": "Nikto",
+    "location": "Alderaan",
+    "reward": 1997
+  },
+  {
+    "name": "Karn Vos Darkblade",
+    "species": "Human",
+    "location": "Alderaan",
+    "reward": 2178
+  },
+  {
+    "name": "Shara Ren the Silent",
+    "species": "Chiss",
+    "location": "Korriban",
+    "reward": 1264
+  },
+  {
+    "name": "Vek Dross",
+    "species": "Twi'lek",
+    "location": "Taris",
+    "reward": 1006
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Rodian",
+    "location": "Nar Shaddaa",
+    "reward": 2138
+  },
+  {
+    "name": "Tolan Reiss the Silent",
+    "species": "Zabrak",
+    "location": "Korriban",
+    "reward": 1999
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Togruta",
+    "location": "Ilum",
+    "reward": 2477
+  },
+  {
+    "name": "Jorik Kaan",
+    "species": "Togruta",
+    "location": "Alderaan",
+    "reward": 1140
+  },
+  {
+    "name": "Vix Rend Darkblade",
+    "species": "Chiss",
+    "location": "Ord Mantell",
+    "reward": 2333
+  },
+  {
+    "name": "Nira Solari Darkblade",
+    "species": "Zabrak",
+    "location": "Nar Shaddaa",
+    "reward": 1366
+  },
+  {
+    "name": "Vek Dross Darkblade",
+    "species": "Mirialan",
+    "location": "Taris",
+    "reward": 2641
+  },
+  {
+    "name": "Jorik Kaan Darkblade",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 2571
+  },
+  {
+    "name": "Selra Venn the Red",
+    "species": "Togruta",
+    "location": "Nar Shaddaa",
+    "reward": 1876
+  },
+  {
+    "name": "Vek Dross the Silent",
+    "species": "Chiss",
+    "location": "Dromund Kaas",
+    "reward": 1901
+  },
+  {
+    "name": "Vessa Drax the Red",
+    "species": "Mirialan",
+    "location": "Dromund Kaas",
+    "reward": 2546
+  },
+  {
+    "name": "Myra Nol the Silent",
+    "species": "Rodian",
+    "location": "Rishi",
+    "reward": 1304
+  },
+  {
+    "name": "Vek Dross the Scarred",
+    "species": "Zabrak",
+    "location": "Alderaan",
+    "reward": 1837
+  },
+  {
+    "name": "Lorik Vonn of Korriban",
+    "species": "Togruta",
+    "location": "Alderaan",
+    "reward": 1369
+  },
+  {
+    "name": "Myra Nol the Silent",
+    "species": "Human",
+    "location": "Taris",
+    "reward": 1056
+  },
+  {
+    "name": "Jorik Kaan of Korriban",
+    "species": "Cyborg",
+    "location": "Rishi",
+    "reward": 1146
+  },
+  {
+    "name": "Bran Durek the Silent",
+    "species": "Rodian",
+    "location": "Balmorra",
+    "reward": 785
+  },
+  {
+    "name": "Karn Vos the Red",
+    "species": "Chiss",
+    "location": "Rishi",
+    "reward": 1077
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Zabrak",
+    "location": "Korriban",
+    "reward": 1408
+  },
+  {
+    "name": "Vessa Drax Darkblade",
+    "species": "Zabrak",
+    "location": "Makeb",
+    "reward": 1034
+  },
+  {
+    "name": "Jelka Thorn the Red",
+    "species": "Twi'lek",
+    "location": "Ilum",
+    "reward": 2823
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Togruta",
+    "location": "Alderaan",
+    "reward": 1394
+  },
+  {
+    "name": "Vix Rend the Red",
+    "species": "Twi'lek",
+    "location": "Nar Shaddaa",
+    "reward": 2545
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Chiss",
+    "location": "Nar Shaddaa",
+    "reward": 1484
+  },
+  {
+    "name": "Talik Marr Darkblade",
+    "species": "Cyborg",
+    "location": "Rishi",
+    "reward": 2995
+  },
+  {
+    "name": "Karn Vos the Silent",
+    "species": "Twi'lek",
+    "location": "Ord Mantell",
+    "reward": 811
+  },
+  {
+    "name": "Tarn Vox",
+    "species": "Chiss",
+    "location": "Makeb",
+    "reward": 1937
+  },
+  {
+    "name": "Tarn Vox of Korriban",
+    "species": "Rodian",
+    "location": "Hutta",
+    "reward": 865
+  },
+  {
+    "name": "Gorran Kreel the Scarred",
+    "species": "Devaronian",
+    "location": "Dromund Kaas",
+    "reward": 1845
+  },
+  {
+    "name": "Selra Venn Darkblade",
+    "species": "Chiss",
+    "location": "Makeb",
+    "reward": 867
+  },
+  {
+    "name": "Jorik Kaan",
+    "species": "Chiss",
+    "location": "Hutta",
+    "reward": 1112
+  },
+  {
+    "name": "Lorik Vonn the Red",
+    "species": "Chiss",
+    "location": "Dromund Kaas",
+    "reward": 934
+  },
+  {
+    "name": "Tolan Reiss the Scarred",
+    "species": "Human",
+    "location": "Hutta",
+    "reward": 1452
+  },
+  {
+    "name": "Selra Venn the Scarred",
+    "species": "Nikto",
+    "location": "Hutta",
+    "reward": 1415
+  },
+  {
+    "name": "Kyra Thorne the Scarred",
+    "species": "Rodian",
+    "location": "Ilum",
+    "reward": 2822
+  },
+  {
+    "name": "Vek Dross the Scarred",
+    "species": "Togruta",
+    "location": "Alderaan",
+    "reward": 2662
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2829
+  },
+  {
+    "name": "Selra Venn of Korriban",
+    "species": "Twi'lek",
+    "location": "Nar Shaddaa",
+    "reward": 944
+  },
+  {
+    "name": "Rask Vano the Silent",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 1366
+  },
+  {
+    "name": "Nira Solari the Red",
+    "species": "Twi'lek",
+    "location": "Tatooine",
+    "reward": 2482
+  },
+  {
+    "name": "Lorik Vonn the Scarred",
+    "species": "Togruta",
+    "location": "Nar Shaddaa",
+    "reward": 998
+  },
+  {
+    "name": "Gorran Kreel the Red",
+    "species": "Zabrak",
+    "location": "Nar Shaddaa",
+    "reward": 1487
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Chiss",
+    "location": "Rishi",
+    "reward": 1212
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Twi'lek",
+    "location": "Ilum",
+    "reward": 2686
+  },
+  {
+    "name": "Karn Vos the Scarred",
+    "species": "Togruta",
+    "location": "Rishi",
+    "reward": 957
+  },
+  {
+    "name": "Vek Dross of Korriban",
+    "species": "Human",
+    "location": "Hutta",
+    "reward": 1317
+  },
+  {
+    "name": "Vek Dross the Red",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 2638
+  },
+  {
+    "name": "Zarok Fell the Red",
+    "species": "Chiss",
+    "location": "Ilum",
+    "reward": 1277
+  },
+  {
+    "name": "Vix Rend Darkblade",
+    "species": "Devaronian",
+    "location": "Makeb",
+    "reward": 2113
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Rodian",
+    "location": "Ilum",
+    "reward": 1766
+  },
+  {
+    "name": "Myra Nol Darkblade",
+    "species": "Human",
+    "location": "Rishi",
+    "reward": 2727
+  },
+  {
+    "name": "Nira Solari Darkblade",
+    "species": "Mirialan",
+    "location": "Taris",
+    "reward": 1589
+  },
+  {
+    "name": "Selra Venn the Silent",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 1425
+  },
+  {
+    "name": "Drex Malin the Silent",
+    "species": "Rodian",
+    "location": "Korriban",
+    "reward": 1271
+  },
+  {
+    "name": "Zarok Fell the Silent",
+    "species": "Chiss",
+    "location": "Ilum",
+    "reward": 2233
+  },
+  {
+    "name": "Nira Solari the Red",
+    "species": "Twi'lek",
+    "location": "Dromund Kaas",
+    "reward": 2901
+  },
+  {
+    "name": "Tarn Vox the Silent",
+    "species": "Rodian",
+    "location": "Ilum",
+    "reward": 1713
+  },
+  {
+    "name": "Kyra Thorne",
+    "species": "Chiss",
+    "location": "Ord Mantell",
+    "reward": 1316
+  },
+  {
+    "name": "Talik Marr of Korriban",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2009
+  },
+  {
+    "name": "Shara Ren the Red",
+    "species": "Togruta",
+    "location": "Rishi",
+    "reward": 2885
+  },
+  {
+    "name": "Zarok Fell of Korriban",
+    "species": "Rodian",
+    "location": "Alderaan",
+    "reward": 1921
+  },
+  {
+    "name": "Kyra Thorne the Silent",
+    "species": "Zabrak",
+    "location": "Alderaan",
+    "reward": 1488
+  },
+  {
+    "name": "Rask Vano the Scarred",
+    "species": "Devaronian",
+    "location": "Rishi",
+    "reward": 2255
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Devaronian",
+    "location": "Balmorra",
+    "reward": 1483
+  },
+  {
+    "name": "Myra Nol of Korriban",
+    "species": "Twi'lek",
+    "location": "Ilum",
+    "reward": 2195
+  },
+  {
+    "name": "Rask Vano the Silent",
+    "species": "Mirialan",
+    "location": "Tatooine",
+    "reward": 2061
+  },
+  {
+    "name": "Jelka Thorn the Red",
+    "species": "Rodian",
+    "location": "Hutta",
+    "reward": 848
+  },
+  {
+    "name": "Vessa Drax the Silent",
+    "species": "Nikto",
+    "location": "Alderaan",
+    "reward": 2255
+  },
+  {
+    "name": "Gorran Kreel the Red",
+    "species": "Twi'lek",
+    "location": "Ord Mantell",
+    "reward": 1370
+  },
+  {
+    "name": "Drex Malin the Silent",
+    "species": "Mirialan",
+    "location": "Ord Mantell",
+    "reward": 804
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Twi'lek",
+    "location": "Hutta",
+    "reward": 2696
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 2023
+  },
+  {
+    "name": "Karn Vos",
+    "species": "Nikto",
+    "location": "Korriban",
+    "reward": 2726
+  },
+  {
+    "name": "Karn Vos the Red",
+    "species": "Rodian",
+    "location": "Makeb",
+    "reward": 2514
+  },
+  {
+    "name": "Shara Ren the Red",
+    "species": "Devaronian",
+    "location": "Tatooine",
+    "reward": 2917
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Togruta",
+    "location": "Nar Shaddaa",
+    "reward": 2272
+  },
+  {
+    "name": "Vix Rend Darkblade",
+    "species": "Mirialan",
+    "location": "Rishi",
+    "reward": 2101
+  },
+  {
+    "name": "Rask Vano Darkblade",
+    "species": "Zabrak",
+    "location": "Ord Mantell",
+    "reward": 2249
+  },
+  {
+    "name": "Zarok Fell Darkblade",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 944
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Zabrak",
+    "location": "Dromund Kaas",
+    "reward": 1664
+  },
+  {
+    "name": "Jelka Thorn the Silent",
+    "species": "Human",
+    "location": "Makeb",
+    "reward": 1482
+  },
+  {
+    "name": "Zarok Fell the Red",
+    "species": "Twi'lek",
+    "location": "Tatooine",
+    "reward": 2570
+  },
+  {
+    "name": "Selra Venn",
+    "species": "Nikto",
+    "location": "Tatooine",
+    "reward": 2176
+  },
+  {
+    "name": "Talik Marr the Red",
+    "species": "Mirialan",
+    "location": "Ord Mantell",
+    "reward": 2827
+  },
+  {
+    "name": "Lorik Vonn Darkblade",
+    "species": "Cyborg",
+    "location": "Hutta",
+    "reward": 1956
+  },
+  {
+    "name": "Gorran Kreel Darkblade",
+    "species": "Cyborg",
+    "location": "Rishi",
+    "reward": 2323
+  },
+  {
+    "name": "Rask Vano the Red",
+    "species": "Twi'lek",
+    "location": "Rishi",
+    "reward": 1906
+  },
+  {
+    "name": "Talik Marr the Red",
+    "species": "Rodian",
+    "location": "Tatooine",
+    "reward": 1238
+  },
+  {
+    "name": "Vix Rend Darkblade",
+    "species": "Devaronian",
+    "location": "Korriban",
+    "reward": 2255
+  },
+  {
+    "name": "Karn Vos the Scarred",
+    "species": "Rodian",
+    "location": "Taris",
+    "reward": 2440
+  },
+  {
+    "name": "Vix Rend the Silent",
+    "species": "Twi'lek",
+    "location": "Ord Mantell",
+    "reward": 2927
+  },
+  {
+    "name": "Rask Vano of Korriban",
+    "species": "Twi'lek",
+    "location": "Rishi",
+    "reward": 1760
+  },
+  {
+    "name": "Talik Marr",
+    "species": "Twi'lek",
+    "location": "Korriban",
+    "reward": 1961
+  },
+  {
+    "name": "Nira Solari the Scarred",
+    "species": "Zabrak",
+    "location": "Hutta",
+    "reward": 2650
+  },
+  {
+    "name": "Shara Ren the Red",
+    "species": "Nikto",
+    "location": "Dromund Kaas",
+    "reward": 2158
+  },
+  {
+    "name": "Vix Rend of Korriban",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2858
+  },
+  {
+    "name": "Gorran Kreel the Red",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2266
+  },
+  {
+    "name": "Gorran Kreel",
+    "species": "Devaronian",
+    "location": "Ilum",
+    "reward": 1809
+  },
+  {
+    "name": "Rask Vano",
+    "species": "Nikto",
+    "location": "Alderaan",
+    "reward": 2003
+  },
+  {
+    "name": "Vix Rend Darkblade",
+    "species": "Chiss",
+    "location": "Dromund Kaas",
+    "reward": 1939
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Mirialan",
+    "location": "Korriban",
+    "reward": 2212
+  },
+  {
+    "name": "Vek Dross of Korriban",
+    "species": "Twi'lek",
+    "location": "Ilum",
+    "reward": 2613
+  },
+  {
+    "name": "Jorik Kaan the Red",
+    "species": "Togruta",
+    "location": "Korriban",
+    "reward": 1187
+  },
+  {
+    "name": "Bran Durek of Korriban",
+    "species": "Togruta",
+    "location": "Balmorra",
+    "reward": 1887
+  },
+  {
+    "name": "Myra Nol the Scarred",
+    "species": "Twi'lek",
+    "location": "Dromund Kaas",
+    "reward": 1608
+  },
+  {
+    "name": "Jorik Kaan the Red",
+    "species": "Human",
+    "location": "Makeb",
+    "reward": 969
+  },
+  {
+    "name": "Rask Vano the Scarred",
+    "species": "Rodian",
+    "location": "Dromund Kaas",
+    "reward": 2004
+  },
+  {
+    "name": "Myra Nol",
+    "species": "Chiss",
+    "location": "Makeb",
+    "reward": 2724
+  },
+  {
+    "name": "Shara Ren the Silent",
+    "species": "Twi'lek",
+    "location": "Alderaan",
+    "reward": 2289
+  },
+  {
+    "name": "Jelka Thorn the Scarred",
+    "species": "Zabrak",
+    "location": "Makeb",
+    "reward": 2484
+  },
+  {
+    "name": "Bran Durek",
+    "species": "Togruta",
+    "location": "Makeb",
+    "reward": 1511
+  },
+  {
+    "name": "Bran Durek",
+    "species": "Cyborg",
+    "location": "Tatooine",
+    "reward": 1295
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Mirialan",
+    "location": "Nar Shaddaa",
+    "reward": 2232
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Zabrak",
+    "location": "Alderaan",
+    "reward": 1839
+  },
+  {
+    "name": "Bran Durek the Silent",
+    "species": "Devaronian",
+    "location": "Nar Shaddaa",
+    "reward": 1513
+  },
+  {
+    "name": "Jorik Kaan the Silent",
+    "species": "Twi'lek",
+    "location": "Korriban",
+    "reward": 2713
+  },
+  {
+    "name": "Rask Vano of Korriban",
+    "species": "Rodian",
+    "location": "Balmorra",
+    "reward": 1995
+  },
+  {
+    "name": "Drex Malin",
+    "species": "Mirialan",
+    "location": "Tatooine",
+    "reward": 792
+  },
+  {
+    "name": "Jelka Thorn the Red",
+    "species": "Zabrak",
+    "location": "Balmorra",
+    "reward": 1430
+  },
+  {
+    "name": "Shara Ren the Silent",
+    "species": "Human",
+    "location": "Dromund Kaas",
+    "reward": 1588
+  }
+]
