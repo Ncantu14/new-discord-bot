@@ -174,6 +174,22 @@ client.on('messageCreate', async (message) => {
     const embed = new EmbedBuilder()
       .setTitle(`⚔️ Encounter: ${encounter.name}`)
       .setDescription(
+        '🧬 **Species:** ' + encounter.species + '
+' +
+        '🎭 **Role:** ' + encounter.role + '
+' +
+        '🌍 **Location:** ' + encounter.location + '
+' +
+        '🔥 **Threat Level:** ' + encounter.threat + '
+' +
+        '❤️ **HP:** ' + encounter.hp + '
+' +
+        '💥 **Damage:** ' + encounter.damage
+      )
+      .setColor('DarkPurple');
+    return message.reply({ embeds: [embed] });
+  }`)
+      .setDescription(
         `🧬 **Species:** ${encounter.species}
 ` +
         `🎭 **Role:** ${encounter.role}
@@ -250,6 +266,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
