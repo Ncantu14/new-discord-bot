@@ -1,6 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
-
+const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
@@ -8,11 +7,10 @@ const client = new Client({
 const token = process.env.DISCORD_TOKEN;
 const prefix = '!';
 
-const allowedRoleId = '1373832351762612234'; // Human admin role
-const allowedBotIds = ['1379634780534214676']; // Cantina bot ID (optional if you split again)
+const allowedRoleId = '1373832351762612234'; // Admin role
+const allowedBotIds = ['1379634780534214676']; // Trusted bot (e.g. Cantina bot)
 
-const users = {};
-const slotsSymbols = ['🍒', '🍋', '🍇', '💎', '7️⃣', '🔔'];
+const users = {}; // XP + credits tracker
 
 function getUser(userId) {
   if (!users[userId]) {
@@ -52,37 +50,50 @@ function hasAdminRole(member, authorId) {
   return member?.roles?.cache?.has(allowedRoleId) || allowedBotIds.includes(authorId);
 }
 
+const suits = ['Sabers', 'Flasks', 'Staves', 'Coins'];
+const deck = [];
+for (let i = -10; i <= 10; i++) {
+  if (i === 0) deck.push({ name: 'The Idiot', value: 0 });
+  else for (let suit of suits) deck.push({ name: `${i} of ${suit}`, value: i });
+}
+function drawCard() {
+  return deck[Math.floor(Math.random() * deck.length)];
+}
+function rollSpike() {
+  return [Math.ceil(Math.random() * 6), Math.ceil(Math.random() * 6)];
+}
+function calculateHand(hand) {
+  return hand.reduce((sum, card) => sum + card.value, 0);
+}
+
 client.on('messageCreate', async (message) => {
-  if (!message.content.startsWith(prefix)) return;
-  if (message.author.bot && !allowedBotIds.includes(message.author.id)) return;
+  if (message.author.bot || !message.content.startsWith(prefix)) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  const sender = getUser(message.author.id);
+  const user = getUser(message.author.id);
+  user.id = message.author.id;
 
-  // !profile
+  // Profile
   if (command === 'profile') {
-    const embed = new EmbedBuilder()
-      .setTitle(`📄 ${message.author.username}'s Profile`)
-      .addFields(
-        { name: 'XP', value: `${sender.xp}`, inline: true },
-        { name: 'Level', value: `${sender.level}`, inline: true },
-        { name: 'Credits', value: `${sender.credits}`, inline: true },
-        { name: 'Prestige', value: `${sender.prestige} (${sender.prestigeClass})`, inline: true }
-      )
-      .setColor('Blue');
-    return message.reply({ embeds: [embed] });
+    return message.reply(
+      `📄 **Profile: ${message.author.username}**\n` +
+      `XP: ${user.xp}\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige: ${user.prestige} (${user.prestigeClass})`
+    );
   }
 
-  // !addxp @user amount
+  // Balance
+  if (command === 'balance') {
+    return message.reply(`💳 You have **${user.credits} credits**.`);
+  }
+
+  // Add XP
   if (command === 'addxp') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const target = message.mentions.users.first() || message.author;
-    const amount = parseInt(args[1] || args[0]);
+    const amount = parseInt(args[0]);
     if (isNaN(amount)) return message.reply('Invalid amount.');
-    const user = getUser(target.id);
     user.xp += amount;
-    let msg = `✅ Added ${amount} XP to ${target.username}.`;
+    let msg = `✅ Added ${amount} XP.`;
     const lvl = checkLevelUp(user);
     const pres = checkPrestige(user);
     if (lvl) msg += `\n${lvl}`;
@@ -90,36 +101,29 @@ client.on('messageCreate', async (message) => {
     return message.reply(msg);
   }
 
-  // !removexp @user amount
+  // Remove XP
   if (command === 'removexp') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const target = message.mentions.users.first() || message.author;
-    const amount = parseInt(args[1] || args[0]);
+    const amount = parseInt(args[0]);
     if (isNaN(amount)) return message.reply('Invalid amount.');
-    const user = getUser(target.id);
     user.xp = Math.max(0, user.xp - amount);
-    return message.reply(`🗑️ Removed ${amount} XP from ${target.username}.`);
+    return message.reply(`🗑️ Removed ${amount} XP.`);
   }
 
-  // !balance
-  if (command === 'balance') {
-    return message.reply(`💳 You have **${sender.credits} credits**.`);
-  }
-
-  // !give @user amount
+  // Give credits
   if (command === 'give') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
     const target = message.mentions.users.first();
     const amount = parseInt(args[1]);
     if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!give @user <amount>`');
-    if (sender.credits < amount) return message.reply("Not enough credits.");
+    if (user.credits < amount) return message.reply("Not enough credits.");
     const targetUser = getUser(target.id);
-    sender.credits -= amount;
+    user.credits -= amount;
     targetUser.credits += amount;
     return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
-  // !setcredits @user amount
+  // Set credits
   if (command === 'setcredits') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
     const target = message.mentions.users.first();
@@ -129,38 +133,51 @@ client.on('messageCreate', async (message) => {
     return message.reply(`✅ Set ${target.username}'s credits to ${amount}.`);
   }
 
-  // !slots <amount>
+  // Slots game
   if (command === 'slots') {
     const bet = parseInt(args[0]);
     if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!slots <amount>`');
-    if (sender.credits < bet) return message.reply("You don’t have enough credits.");
+    if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
 
-    const roll = [randSlot(), randSlot(), randSlot()];
-    let win = false;
-    let winnings = 0;
+    const symbols = ['🍒', '🍋', '🍇', '💎', '7️⃣', '🔔'];
+    const result = [0, 1, 2].map(() => symbols[Math.floor(Math.random() * symbols.length)]);
+    const win = result.every(s => s === result[0]);
 
-    if (roll[0] === roll[1] && roll[1] === roll[2]) {
-      win = true;
-      winnings = bet * 5;
+    if (win) {
+      const winnings = bet * 5;
+      user.credits += winnings;
+      return message.reply(`🎰 ${result.join(' ')}\n💰 Jackpot! You win **${winnings} credits**!`);
+    } else {
+      user.credits -= bet;
+      return message.reply(`🎰 ${result.join(' ')}\n😢 You lost **${bet} credits**.`);
+    }
+  }
+
+  // Dice Roller
+  if (command === 'roll') {
+    const input = args.join('').toLowerCase(); // e.g., d20+5
+    const match = input.match(/d(\d+)([+-]\d+)?/);
+
+    if (!match) {
+      return message.reply('🎲 Invalid format. Try `!roll d20`, `!roll d100+5`, or `!roll d6-1`.');
     }
 
-    sender.credits += win ? winnings : -bet;
+    const sides = parseInt(match[1]);
+    const modifier = parseInt(match[2]) || 0;
 
-    const result = new EmbedBuilder()
-      .setTitle(`🎰 Cantina Slots`)
-      .setDescription(`🎲 ${roll.join(' | ')}\n\n${win ? `💰 You won **${winnings} credits**!` : `❌ You lost **${bet} credits**.`}\nNew Balance: **${sender.credits} credits**`)
-      .setColor(win ? 'Green' : 'Red');
+    if (isNaN(sides) || sides <= 0) {
+      return message.reply('❌ Invalid number of sides. Use something like `d20`, `d6`, `d100`, etc.');
+    }
 
-    return message.reply({ embeds: [result] });
+    const roll = Math.ceil(Math.random() * sides);
+    const total = roll + modifier;
+    const modifierText = modifier !== 0 ? (modifier > 0 ? ` + ${modifier}` : ` - ${Math.abs(modifier)}`) : '';
+    return message.reply(`🎲 Rolled **1d${sides}${modifierText}** → 🎯 **${roll}**${modifier !== 0 ? ` → Total: **${total}**` : ''}`);
   }
 });
 
-function randSlot() {
-  return slotsSymbols[Math.floor(Math.random() * slotsSymbols.length)];
-}
-
 client.once('ready', () => {
-  console.log(`✅ SWTOR RP Bot is online as ${client.user.tag}`);
+  console.log(`✅ Bot is running! Logged in as ${client.user.tag}`);
 });
 
 process.on('SIGINT', () => {
@@ -169,5 +186,6 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
