@@ -1,6 +1,6 @@
 require('dotenv').config();
 const fs = require('fs');
-const { Client, GatewayIntentBits, EmbedBuilder, Partials } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -24,30 +24,9 @@ let activeBounty = null;
 
 function getUser(userId) {
   if (!users[userId]) {
-    users[userId] = { xp: 0, level: 1, credits: 1000, prestige: 0, prestigeClass: 'None' };
+    users[userId] = { level: 1, credits: 1000, prestigeClass: 'None' };
   }
   return users[userId];
-}
-
-function checkLevelUp(user) {
-  const nextLevelXP = user.level * 100;
-  if (user.xp >= nextLevelXP) {
-    user.level++;
-    user.xp = 0;
-    return `🔺 Leveled up to **Level ${user.level}**!`;
-  }
-  return null;
-}
-
-function checkPrestige(user) {
-  if (user.level >= 20 && user.prestige < 5) {
-    user.prestige++;
-    user.level = 1;
-    user.xp = 0;
-    user.prestigeClass = `Prestige ${user.prestige}`;
-    return `🌟 Reached **Prestige ${user.prestige}**!`;
-  }
-  return null;
 }
 
 function hasAdminRole(member, authorId) {
@@ -104,32 +83,11 @@ client.on('messageCreate', async (message) => {
   user.id = message.author.id;
 
   if (command === 'profile') {
-    return message.reply(`📄 **Profile: ${message.author.username}**\nXP: ${user.xp}\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige: ${user.prestige} (${user.prestigeClass})`);
+    return message.reply(`📄 **Profile: ${message.author.username}**\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige Class: ${user.prestigeClass}`);
   }
 
   if (command === 'balance') {
     return message.reply(`💳 You have **${user.credits} credits**.`);
-  }
-
-  if (command === 'addxp') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const amount = parseInt(args[0]);
-    if (isNaN(amount)) return message.reply('Invalid amount.');
-    user.xp += amount;
-    let msg = `✅ Added ${amount} XP.`;
-    const lvl = checkLevelUp(user);
-    const pres = checkPrestige(user);
-    if (lvl) msg += `\n${lvl}`;
-    if (pres) msg += `\n${pres}`;
-    return message.reply(msg);
-  }
-
-  if (command === 'removexp') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const amount = parseInt(args[0]);
-    if (isNaN(amount)) return message.reply('Invalid amount.');
-    user.xp = Math.max(0, user.xp - amount);
-    return message.reply(`🗑️ Removed ${amount} XP.`);
   }
 
   if (command === 'setcredits') {
@@ -218,7 +176,7 @@ client.on('messageCreate', async (message) => {
 
     const sabaccShift = Math.random() < 0.1;
     if (sabaccShift) {
-      return message.reply('🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.');
+      return message.reply(`🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.\n💳 Your balance remains at **${user.credits} credits**.`);
     }
 
     const player = drawHand();
@@ -233,12 +191,13 @@ client.on('messageCreate', async (message) => {
     if (playerWin) {
       const winnings = bet * 2;
       user.credits += winnings;
-      resultText += `💰 You win **${winnings} credits**!`;
+      resultText += `💰 You win **${winnings} credits**!\n`;
     } else {
       user.credits -= bet;
-      resultText += `😢 You lose **${bet} credits**.`;
+      resultText += `😢 You lose **${bet} credits**.\n`;
     }
 
+    resultText += `💳 Your new balance: **${user.credits} credits**.`;
     return message.reply(resultText);
   }
 });
