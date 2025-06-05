@@ -19,12 +19,33 @@ const allowedBotIds = ['1379634780534214676'];
 const bountyChannelId = '1373842052730720296';
 const bountyList = JSON.parse(fs.readFileSync('bounties.json'));
 const encounterList = JSON.parse(fs.readFileSync('swtor_encounters_500.json'));
-const users = {};
+const usersPath = './users.json';
+const users = loadUsers();
 let activeBounty = null;
+
+function loadUsers() {
+  if (fs.existsSync(usersPath)) {
+    return JSON.parse(fs.readFileSync(usersPath));
+  }
+  return {};
+}
+
+function saveUsers() {
+  fs.writeFileSync(usersPath, JSON.stringify(users, null, 2));
+}
 
 function getUser(userId) {
   if (!users[userId]) {
     users[userId] = { level: 1, credits: 1000, prestigeClass: 'None' };
+  }
+  if (!users[userId].sabaccStats) {
+    users[userId].sabaccStats = {
+      wins: 0,
+      losses: 0,
+      ties: 0,
+      currentStreak: 0,
+      bestStreak: 0
+    };
   }
   return users[userId];
 }
@@ -96,6 +117,7 @@ client.on('messageCreate', async (message) => {
     const amount = parseInt(args[1]);
     if (!target || isNaN(amount)) return message.reply('Usage: `!setcredits @user <amount>`');
     getUser(target.id).credits = amount;
+    saveUsers();
     return message.reply(`✅ Set ${target.username}'s credits to ${amount}.`);
   }
 
@@ -108,6 +130,7 @@ client.on('messageCreate', async (message) => {
     const targetUser = getUser(target.id);
     user.credits -= amount;
     targetUser.credits += amount;
+    saveUsers();
     return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
@@ -118,6 +141,7 @@ client.on('messageCreate', async (message) => {
     if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!givecreditsto @user <amount>`');
     const targetUser = getUser(target.id);
     targetUser.credits += amount;
+    saveUsers();
     return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
@@ -181,24 +205,71 @@ client.on('messageCreate', async (message) => {
 
     const player = drawHand();
     const dealer = drawHand();
+    const playerDiff = 23 - Math.abs(player.total);
+    const dealerDiff = 23 - Math.abs(dealer.total);
+    const stats = user.sabaccStats;
 
     let resultText = `🃏 **You drew:** ${player.cards.join(', ')} (Total: ${player.total})\n🎲 **Dealer drew:** ${dealer.cards.join(', ')} (Total: ${dealer.total})\n`;
 
-    const playerWin =
-      (Math.abs(player.total) === 23) ||
-      (Math.abs(player.total) <= 23 && Math.abs(player.total) > Math.abs(dealer.total));
-
-    if (playerWin) {
+    if (Math.abs(player.total) === 23) {
       const winnings = bet * 2;
       user.credits += winnings;
-      resultText += `💰 You win **${winnings} credits**!\n`;
+      stats.wins++;
+      stats.currentStreak++;
+      if (stats.currentStreak > stats.bestStreak) stats.bestStreak = stats.currentStreak;
+      saveUsers();
+      resultText += `💰 You hit **23**! You win **${winnings} credits**!\n`;
+    } else if (playerDiff < dealerDiff) {
+      const winnings = bet * 2;
+      user.credits += winnings;
+      stats.wins++;
+      stats.currentStreak++;
+      if (stats.currentStreak > stats.bestStreak) stats.bestStreak = stats.currentStreak;
+      saveUsers();
+      resultText += `✅ You were closer to 23! You win **${winnings} credits**!\n`;
+    } else if (playerDiff === dealerDiff) {
+      stats.ties++;
+      stats.currentStreak = 0;
+      saveUsers();
+      resultText += `🤝 It's a tie. Your bet is returned.\n`;
     } else {
       user.credits -= bet;
-      resultText += `😢 You lose **${bet} credits**.\n`;
+      stats.losses++;
+      stats.currentStreak = 0;
+      saveUsers();
+      resultText += `😢 Dealer was closer to 23. You lose **${bet} credits**.\n`;
     }
 
     resultText += `💳 Your new balance: **${user.credits} credits**.`;
     return message.reply(resultText);
+  }
+
+  if (command === 'stats') {
+    const stats = user.sabaccStats;
+    return message.reply(`📊 **Sabacc Stats for ${message.author.username}:**
+🏆 Wins: ${stats.wins}
+💀 Losses: ${stats.losses}
+⚖️ Ties: ${stats.ties}
+🔥 Current Win Streak: ${stats.currentStreak}
+✨ Best Streak: ${stats.bestStreak}`);
+  }
+
+  if (command === 'scoreboard') {
+    const sorted = Object.entries(users)
+      .filter(([_, data]) => data.sabaccStats)
+      .sort(([, a], [, b]) => b.sabaccStats.wins - a.sabaccStats.wins)
+      .slice(0, 10);
+
+    const lines = await Promise.all(sorted.map(async ([userId, data], i) => {
+      try {
+        const userObj = await client.users.fetch(userId);
+        return `${i + 1}. **${userObj.username}** – ${data.sabaccStats.wins} wins`;
+      } catch {
+        return `${i + 1}. Unknown User – ${data.sabaccStats.wins} wins`;
+      }
+    }));
+
+    return message.reply(`🏅 **Top Sabacc Winners**\n${lines.join('\n')}`);
   }
 });
 
@@ -212,6 +283,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
