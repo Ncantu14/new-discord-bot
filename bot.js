@@ -60,8 +60,57 @@ function postBounty() {
 
   const embed = new EmbedBuilder()
     .setTitle(`New Bounty Posted!`)
-    .setDescription(
-      `Target: ${bounty.name} (${bounty.species})\n` +
+    .addFields(
+      { name: 'Target', value: `${bounty.name}`, inline: true },
+      { name: 'Species', value: `${bounty.species}`, inline: true },
+      { name: 'Affiliation', value: `${bounty.affiliation}`, inline: true },
+      { name: 'Known Skills', value: `${bounty.known_skills}`, inline: true },
+      { name: 'Location', value: `${bounty.location}`, inline: true },
+      { name: 'Last Seen', value: `${bounty.last_seen}`, inline: false },
+      { name: 'Crime', value: `${bounty.crime}`, inline: true },
+      { name: 'Job Type', value: `${bounty.job_type}`, inline: true },
+      { name: 'Difficulty', value: `${bounty.difficulty}`, inline: true },
+      { name: 'Reward', value: `${bounty.reward} credits`, inline: true },
+      { name: 'Bonus', value: `${bounty.bonus || 'None'}`, inline: true }
+    )
+    .setFooter({ text: `React 🎯 to claim this bounty.` })
+    .setColor(getDifficultyColor(bounty.difficulty));
+
+  client.channels.fetch(bountyChannelId).then(channel => {
+    channel.send({ embeds: [embed] }).then(msg => {
+      activeBounty = { id: msg.id, claimed: false, reward: bounty.reward };
+
+      msg.react('🎯');
+
+      const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
+      const collector = msg.createReactionCollector({ filter, max: 1, time: 5 * 60 * 1000 });
+
+      collector.on('collect', (reaction, user) => {
+        if (!activeBounty.claimed) {
+          activeBounty.claimed = true;
+          const claimedEmbed = EmbedBuilder.from(embed)
+            .setFooter({ text: `Claimed by ${user.username}` })
+            .setColor(0x3498DB);
+
+          msg.edit({ embeds: [claimedEmbed] }).catch(console.error);
+          msg.reply(`Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
+
+          const claimer = getUser(user.id);
+          claimer.credits += activeBounty.reward;
+          saveUsers();
+          msg.channel.send(`<@${user.id}> has been awarded ${activeBounty.reward} credits.`);
+        }
+      });
+
+      collector.on('end', () => {
+        if (!activeBounty.claimed) {
+          msg.reply('Bounty expired. No one claimed it.');
+        }
+        activeBounty = null;
+      });
+    });
+  });
+}\n` +
       `Affiliation: ${bounty.affiliation} | Skills: ${bounty.known_skills}\n` +
       `Location: ${bounty.location}\n` +
       `Crime: ${bounty.crime}\n` +
