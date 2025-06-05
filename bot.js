@@ -199,21 +199,47 @@ client.on('messageCreate', async (message) => {
     return message.reply(`🎲 You rolled a **${total}**${modText}`);
   }
 
-  if (command === 'slots') {
-    const bet = parseInt(args[0]);
-    if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!slots <amount>`');
-    if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
-    const symbols = ['🍒', '🍋', '🍇', '💎', '7️⃣', '🔔'];
-    const result = Array.from({ length: 3 }, () => symbols[Math.floor(Math.random() * symbols.length)]);
-    const win = result.every(s => s === result[0]);
-    if (win) {
-      const winnings = bet * 5;
-      user.credits += winnings;
-      return message.reply(`🎰 ${result.join(' ')}\n💰 Jackpot! You win **${winnings} credits**!`);
-    } else {
-      user.credits -= bet;
-      return message.reply(`🎰 ${result.join(' ')}\n😢 You lost **${bet} credits**.`);
-    }
+  if (command === 'sabacc') {
+  const bet = parseInt(args[0]);
+  if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!sabacc <amount>`');
+  if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
+
+  function drawCard() {
+    const value = Math.floor(Math.random() * 21) - 10;
+    return value === 0 ? drawCard() : value; // no 0s
+  }
+
+  function drawHand() {
+    const hand = [drawCard(), drawCard()];
+    return { cards: hand, total: hand.reduce((a, b) => a + b, 0) };
+  }
+
+  const sabaccShift = Math.random() < 0.1;
+
+  if (sabaccShift) {
+    return message.reply('🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.');
+  }
+
+  const player = drawHand();
+  const dealer = drawHand();
+
+  let resultText = `🃏 **You drew:** ${player.cards.join(', ')} (Total: ${player.total})\n🎲 **Dealer drew:** ${dealer.cards.join(', ')} (Total: ${dealer.total})\n`;
+
+  const playerWin =
+    (Math.abs(player.total) === 23) ||
+    (Math.abs(player.total) <= 23 && Math.abs(player.total) > Math.abs(dealer.total));
+
+  if (playerWin) {
+    const winnings = bet * 2;
+    user.credits += winnings;
+    resultText += `💰 You win **${winnings} credits**!`;
+  } else {
+    user.credits -= bet;
+    resultText += `😢 You lose **${bet} credits**.`;
+  }
+
+  return message.reply(resultText);
+}
   }
 });
 
