@@ -110,51 +110,6 @@ function postBounty() {
       });
     });
   });
-}\n` +
-      `Affiliation: ${bounty.affiliation} | Skills: ${bounty.known_skills}\n` +
-      `Location: ${bounty.location}\n` +
-      `Crime: ${bounty.crime}\n` +
-      `Job Type: ${bounty.job_type} | Difficulty: ${bounty.difficulty}\n` +
-      `Reward: ${bounty.reward} credits | Bonus: ${bounty.bonus || 'None'}\n` +
-      `${bounty.last_seen}`
-    )
-    .setFooter({ text: `React 🎯 to claim this bounty.` })
-    .setColor(getDifficultyColor(bounty.difficulty));
-
-  client.channels.fetch(bountyChannelId).then(channel => {
-    channel.send({ embeds: [embed] }).then(msg => {
-      activeBounty = { id: msg.id, claimed: false, reward: bounty.reward };
-
-      msg.react('🎯');
-
-      const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
-      const collector = msg.createReactionCollector({ filter, max: 1, time: 5 * 60 * 1000 });
-
-      collector.on('collect', (reaction, user) => {
-        if (!activeBounty.claimed) {
-          activeBounty.claimed = true;
-          const claimedEmbed = EmbedBuilder.from(embed)
-            .setFooter({ text: `Claimed by ${user.username}` })
-            .setColor(0x3498DB);
-
-          msg.edit({ embeds: [claimedEmbed] }).catch(console.error);
-          msg.reply(`Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
-
-          const claimer = getUser(user.id);
-          claimer.credits += activeBounty.reward;
-          saveUsers();
-          msg.channel.send(`<@${user.id}> has been awarded ${activeBounty.reward} credits.`);
-        }
-      });
-
-      collector.on('end', () => {
-        if (!activeBounty.claimed) {
-          msg.reply('Bounty expired. No one claimed it.');
-        }
-        activeBounty = null;
-      });
-    });
-  });
 }
 
 setInterval(postBounty, 30 * 60 * 1000);
@@ -199,7 +154,7 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'bountyclaim') {
-    return message.reply(`@&${allowedRoleId}: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
+    return message.reply(`<@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
   }
 
   if (command === 'forcebounty') {
@@ -219,5 +174,6 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
      
