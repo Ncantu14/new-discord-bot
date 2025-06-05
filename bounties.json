@@ -2,7 +2,7 @@
   {
     "name": "Karn Vos",
     "species": "Devaronian",
-    "location": "Rishi",
+    "location": "Nal Hutta",
     "reward": 780,
     "job_type": "Dead Only",
     "crime": "Sith Traitor",
@@ -15,7 +15,7 @@
   {
     "name": "Talik Marr",
     "species": "Chiss",
-    "location": "Dromund Kaas",
+    "location": "Nal Hutta",
     "reward": 1042,
     "job_type": "Escort Target",
     "crime": "Massacre",
@@ -28,7 +28,7 @@
   {
     "name": "Jelka Thorn",
     "species": "Rodian",
-    "location": "Balmorra",
+    "location": "Nal Hutta",
     "reward": 895,
     "job_type": "Escort Target",
     "crime": "Massacre",
@@ -54,7 +54,7 @@
   {
     "name": "Kyra Thorne",
     "species": "Cyborg",
-    "location": "Alderaan",
+    "location": "Nal Hutta",
     "reward": 1034,
     "job_type": "Dead Only",
     "crime": "Assassination",
@@ -67,7 +67,7 @@
   {
     "name": "Talik Marr",
     "species": "Twi'lek",
-    "location": "Balmorra",
+    "location": "Nal Hutta",
     "reward": 2195,
     "job_type": "Intel Recovery",
     "crime": "Massacre",
