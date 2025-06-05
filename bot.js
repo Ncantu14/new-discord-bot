@@ -66,7 +66,6 @@ function postBounty() {
       { name: 'Species', value: `${bounty.species}`, inline: true },
       { name: 'Affiliation', value: `${bounty.affiliation}`, inline: true },
       { name: 'Known Skills', value: `${bounty.known_skills}`, inline: true },
-      { name: 'Location', value: `${bounty.location}`, inline: true },
       { name: 'Last Seen', value: `${bounty.last_seen}`, inline: false },
       { name: 'Crime', value: `${bounty.crime}`, inline: true },
       { name: 'Job Type', value: `${bounty.job_type}`, inline: true },
@@ -99,7 +98,7 @@ function postBounty() {
         }
       });
 
-      collector.on('end', collected => {
+      collector.on('end', () => {
         if (!activeBounty.claimed) {
           msg.reply('Bounty expired. No one claimed it.').then(m => setTimeout(() => m.delete().catch(() => {}), 5000));
           msg.delete().catch(() => {});
@@ -204,8 +203,3 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
-
-
-
-
-     
