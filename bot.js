@@ -59,7 +59,7 @@ function postBounty() {
   const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
   const embed = new EmbedBuilder()
     .setTitle(`📡 New Bounty Posted!`)
-    .setDescription(`🎯 **Target:** ${bounty.name}  \n🧬 **Species:** ${bounty.species}  \n📍 **Last Known Location:** ${bounty.location}  \n💰 **Reward:** ${bounty.reward} credits`)
+    .setDescription(`🎯 **Target:** ${bounty.name}\n🧬 **Species:** ${bounty.species}\n📍 **Last Known Location:** ${bounty.location}\n💰 **Reward:** ${bounty.reward} credits`)
     .setFooter({ text: `First to react claims the bounty.` })
     .setColor('DarkRed');
 
@@ -107,7 +107,9 @@ client.on('messageCreate', async (message) => {
     return message.reply(`📄 **Profile: ${message.author.username}**\nXP: ${user.xp}\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige: ${user.prestige} (${user.prestigeClass})`);
   }
 
-  if (command === 'balance') return message.reply(`💳 You have **${user.credits} credits**.`);
+  if (command === 'balance') {
+    return message.reply(`💳 You have **${user.credits} credits**.`);
+  }
 
   if (command === 'addxp') {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
@@ -162,7 +164,7 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'bountyclaim') {
-    message.reply(`📣 <@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
+    return message.reply(`📣 <@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
   }
 
   if (command === 'forcebounty') {
@@ -200,46 +202,44 @@ client.on('messageCreate', async (message) => {
   }
 
   if (command === 'sabacc') {
-  const bet = parseInt(args[0]);
-  if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!sabacc <amount>`');
-  if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
+    const bet = parseInt(args[0]);
+    if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!sabacc <amount>`');
+    if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
 
-  function drawCard() {
-    const value = Math.floor(Math.random() * 21) - 10;
-    return value === 0 ? drawCard() : value; // no 0s
-  }
+    function drawCard() {
+      const value = Math.floor(Math.random() * 21) - 10;
+      return value === 0 ? drawCard() : value;
+    }
 
-  function drawHand() {
-    const hand = [drawCard(), drawCard()];
-    return { cards: hand, total: hand.reduce((a, b) => a + b, 0) };
-  }
+    function drawHand() {
+      const hand = [drawCard(), drawCard()];
+      return { cards: hand, total: hand.reduce((a, b) => a + b, 0) };
+    }
 
-  const sabaccShift = Math.random() < 0.1;
+    const sabaccShift = Math.random() < 0.1;
+    if (sabaccShift) {
+      return message.reply('🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.');
+    }
 
-  if (sabaccShift) {
-    return message.reply('🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.');
-  }
+    const player = drawHand();
+    const dealer = drawHand();
 
-  const player = drawHand();
-  const dealer = drawHand();
+    let resultText = `🃏 **You drew:** ${player.cards.join(', ')} (Total: ${player.total})\n🎲 **Dealer drew:** ${dealer.cards.join(', ')} (Total: ${dealer.total})\n`;
 
-  let resultText = `🃏 **You drew:** ${player.cards.join(', ')} (Total: ${player.total})\n🎲 **Dealer drew:** ${dealer.cards.join(', ')} (Total: ${dealer.total})\n`;
+    const playerWin =
+      (Math.abs(player.total) === 23) ||
+      (Math.abs(player.total) <= 23 && Math.abs(player.total) > Math.abs(dealer.total));
 
-  const playerWin =
-    (Math.abs(player.total) === 23) ||
-    (Math.abs(player.total) <= 23 && Math.abs(player.total) > Math.abs(dealer.total));
+    if (playerWin) {
+      const winnings = bet * 2;
+      user.credits += winnings;
+      resultText += `💰 You win **${winnings} credits**!`;
+    } else {
+      user.credits -= bet;
+      resultText += `😢 You lose **${bet} credits**.`;
+    }
 
-  if (playerWin) {
-    const winnings = bet * 2;
-    user.credits += winnings;
-    resultText += `💰 You win **${winnings} credits**!`;
-  } else {
-    user.credits -= bet;
-    resultText += `😢 You lose **${bet} credits**.`;
-  }
-
-  return message.reply(resultText);
-}
+    return message.reply(resultText);
   }
 });
 
@@ -253,6 +253,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
