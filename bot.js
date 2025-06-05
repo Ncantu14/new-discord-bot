@@ -99,9 +99,10 @@ function postBounty() {
         }
       });
 
-      collector.on('end', () => {
+      collector.on('end', collected => {
         if (!activeBounty.claimed) {
-          msg.reply('Bounty expired. No one claimed it.');
+          msg.reply('Bounty expired. No one claimed it.').then(m => setTimeout(() => m.delete().catch(() => {}), 5000));
+          msg.delete().catch(() => {});
           activeBounty = null;
           activeBountyMessage = null;
         }
@@ -203,6 +204,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
