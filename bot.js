@@ -18,7 +18,6 @@ const allowedRoleId = '1373832351762612234';
 const allowedBotIds = ['1379634780534214676'];
 const bountyChannelId = '1373842052730720296';
 const bountyList = JSON.parse(fs.readFileSync('bounties.json'));
-const encounterList = JSON.parse(fs.readFileSync('swtor_encounters_500.json'));
 const usersPath = './users.json';
 const users = loadUsers();
 let activeBounty = null;
@@ -38,15 +37,6 @@ function getUser(userId) {
   if (!users[userId]) {
     users[userId] = { level: 1, credits: 1000, prestigeClass: 'None' };
   }
-  if (!users[userId].sabaccStats) {
-    users[userId].sabaccStats = {
-      wins: 0,
-      losses: 0,
-      ties: 0,
-      currentStreak: 0,
-      bestStreak: 0
-    };
-  }
   return users[userId];
 }
 
@@ -57,35 +47,46 @@ function hasAdminRole(member, authorId) {
 function postBounty() {
   if (!client.channels.cache.has(bountyChannelId)) return;
   const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
+
   const embed = new EmbedBuilder()
-    .setTitle(`📡 New Bounty Posted!`)
-    .setDescription(`🎯 **Target:** ${bounty.name}\n🧬 **Species:** ${bounty.species}\n📍 **Last Known Location:** ${bounty.location}\n💰 **Reward:** ${bounty.reward} credits`)
-    .setFooter({ text: `First to react claims the bounty.` })
+    .setTitle(`\uD83D\uDCF1 New Bounty Posted!`)
+    .setDescription(
+      `\uD83C\uDFAF **Target:** ${bounty.name} (${bounty.species})\n` +
+      `\uD83E\uDDEC **Affiliation:** ${bounty.affiliation} | **Skills:** ${bounty.known_skills}\n` +
+      `\uD83D\uDCCD **Location:** ${bounty.location}\n` +
+      `\uD83D\uDC80 **Crime:** ${bounty.crime}\n` +
+      `\uD83D\uDCE6 **Job Type:** ${bounty.job_type} | \uD83C\uDF9A️ Difficulty: ${bounty.difficulty}\n` +
+      `\uD83D\uDCB0 **Reward:** ${bounty.reward} credits | \uD83C\uDF96️ Bonus: ${bounty.bonus || 'None'}\n` +
+      `\uD83D\uDDFA ${bounty.last_seen}`
+    )
+    .setFooter({ text: `React 🎯 to claim this bounty.` })
     .setColor('DarkRed');
 
   client.channels.fetch(bountyChannelId).then(channel => {
     channel.send({ embeds: [embed] }).then(msg => {
       activeBounty = { id: msg.id, claimed: false };
+
       msg.react('🎯');
 
       const filter = (reaction, user) => reaction.emoji.name === '🎯' && !user.bot;
-      const collector = msg.createReactionCollector({ filter, time: 5 * 60 * 1000 });
+      const collector = msg.createReactionCollector({ filter, max: 1, time: 5 * 60 * 1000 });
 
       collector.on('collect', (reaction, user) => {
         if (!activeBounty.claimed) {
           activeBounty.claimed = true;
-          msg.reply(`🛡️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
+
+          const claimedEmbed = EmbedBuilder.from(embed)
+            .setFooter({ text: `✅ Claimed by ${user.username}` })
+            .setColor('Green');
+
+          msg.edit({ embeds: [claimedEmbed] }).catch(console.error);
+          msg.reply(`\uD83D\uDEE1️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
         }
       });
 
       collector.on('end', () => {
         if (!activeBounty.claimed) {
-          msg.reply('⏳ Bounty expired. No one claimed it.').then(expiredMsg => {
-            setTimeout(() => expiredMsg.delete().catch(() => {}), 5000);
-          });
-          msg.delete().catch(() => {});
-        } else {
-          msg.delete().catch(() => {});
+          msg.reply('⏳ Bounty expired. No one claimed it.');
         }
         activeBounty = null;
       });
@@ -134,17 +135,6 @@ client.on('messageCreate', async (message) => {
     return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
   }
 
-  if (command === 'givecreditsto') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
-    const target = message.mentions.users.first();
-    const amount = parseInt(args[1]);
-    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!givecreditsto @user <amount>`');
-    const targetUser = getUser(target.id);
-    targetUser.credits += amount;
-    saveUsers();
-    return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
-  }
-
   if (command === 'bountyclaim') {
     return message.reply(`📣 <@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
   }
@@ -153,123 +143,6 @@ client.on('messageCreate', async (message) => {
     if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
     postBounty();
     return message.reply('📡 Manual bounty posted.');
-  }
-
-  if (command === 'encounter') {
-    const encounter = encounterList[Math.floor(Math.random() * encounterList.length)];
-    const embed = new EmbedBuilder()
-      .setTitle(`⚔️ Encounter: ${encounter.name}`)
-      .setDescription(
-        `🧬 **Species:** ${encounter.species}
-🎭 **Role:** ${encounter.role}
-🌍 **Location:** ${encounter.location}
-🔥 **Threat Level:** ${encounter.threat}
-❤️ **HP:** ${encounter.hp}
-💥 **Damage:** ${encounter.damage}`
-      )
-      .setColor('DarkPurple');
-    return message.reply({ embeds: [embed] });
-  }
-
-  if (command === 'roll') {
-    const input = args.join('').toLowerCase();
-    const match = input.match(/d(\d+)([+-]\d+)?/);
-    if (!match) return message.reply('🎲 Invalid format. Try `!roll d20`, `!roll d100+5`, etc.');
-    const sides = parseInt(match[1]);
-    const modifier = parseInt(match[2]) || 0;
-    const roll = Math.ceil(Math.random() * sides);
-    const total = roll + modifier;
-    const modText = modifier !== 0 ? ` (${roll} ${modifier > 0 ? '+' : '-'} ${Math.abs(modifier)})` : '';
-    return message.reply(`🎲 You rolled a **${total}**${modText}`);
-  }
-
-  if (command === 'sabacc') {
-    const bet = parseInt(args[0]);
-    if (isNaN(bet) || bet <= 0) return message.reply('Usage: `!sabacc <amount>`');
-    if (user.credits < bet) return message.reply('❌ You don’t have enough credits.');
-
-    function drawCard() {
-      const value = Math.floor(Math.random() * 21) - 10;
-      return value === 0 ? drawCard() : value;
-    }
-
-    function drawHand() {
-      const hand = [drawCard(), drawCard()];
-      return { cards: hand, total: hand.reduce((a, b) => a + b, 0) };
-    }
-
-    const sabaccShift = Math.random() < 0.1;
-    if (sabaccShift) {
-      return message.reply(`🌪️ **Sabacc Shift!** The deck is scrambled! All bets are void.\n💳 Your balance remains at **${user.credits} credits**.`);
-    }
-
-    const player = drawHand();
-    const dealer = drawHand();
-    const playerDiff = 23 - Math.abs(player.total);
-    const dealerDiff = 23 - Math.abs(dealer.total);
-    const stats = user.sabaccStats;
-
-    let resultText = `🃏 **You drew:** ${player.cards.join(', ')} (Total: ${player.total})\n🎲 **Dealer drew:** ${dealer.cards.join(', ')} (Total: ${dealer.total})\n`;
-
-    if (Math.abs(player.total) === 23) {
-      const winnings = bet * 2;
-      user.credits += winnings;
-      stats.wins++;
-      stats.currentStreak++;
-      if (stats.currentStreak > stats.bestStreak) stats.bestStreak = stats.currentStreak;
-      saveUsers();
-      resultText += `💰 You hit **23**! You win **${winnings} credits**!\n`;
-    } else if (playerDiff < dealerDiff) {
-      const winnings = bet * 2;
-      user.credits += winnings;
-      stats.wins++;
-      stats.currentStreak++;
-      if (stats.currentStreak > stats.bestStreak) stats.bestStreak = stats.currentStreak;
-      saveUsers();
-      resultText += `✅ You were closer to 23! You win **${winnings} credits**!\n`;
-    } else if (playerDiff === dealerDiff) {
-      stats.ties++;
-      stats.currentStreak = 0;
-      saveUsers();
-      resultText += `🤝 It's a tie. Your bet is returned.\n`;
-    } else {
-      user.credits -= bet;
-      stats.losses++;
-      stats.currentStreak = 0;
-      saveUsers();
-      resultText += `😢 Dealer was closer to 23. You lose **${bet} credits**.\n`;
-    }
-
-    resultText += `💳 Your new balance: **${user.credits} credits**.`;
-    return message.reply(resultText);
-  }
-
-  if (command === 'stats') {
-    const stats = user.sabaccStats;
-    return message.reply(`📊 **Sabacc Stats for ${message.author.username}:**
-🏆 Wins: ${stats.wins}
-💀 Losses: ${stats.losses}
-⚖️ Ties: ${stats.ties}
-🔥 Current Win Streak: ${stats.currentStreak}
-✨ Best Streak: ${stats.bestStreak}`);
-  }
-
-  if (command === 'scoreboard') {
-    const sorted = Object.entries(users)
-      .filter(([_, data]) => data.sabaccStats)
-      .sort(([, a], [, b]) => b.sabaccStats.wins - a.sabaccStats.wins)
-      .slice(0, 10);
-
-    const lines = await Promise.all(sorted.map(async ([userId, data], i) => {
-      try {
-        const userObj = await client.users.fetch(userId);
-        return `${i + 1}. **${userObj.username}** – ${data.sabaccStats.wins} wins`;
-      } catch {
-        return `${i + 1}. Unknown User – ${data.sabaccStats.wins} wins`;
-      }
-    }));
-
-    return message.reply(`🏅 **Top Sabacc Winners**\n${lines.join('\n')}`);
   }
 });
 
@@ -283,6 +156,7 @@ process.on('SIGINT', () => {
 });
 
 client.login(token);
+
 
 
 
