@@ -44,27 +44,37 @@ function hasAdminRole(member, authorId) {
   return member?.roles?.cache?.has(allowedRoleId) || allowedBotIds.includes(authorId) || authorId === allowedRoleId;
 }
 
+function getDifficultyColor(difficulty) {
+  switch (difficulty.toLowerCase()) {
+    case 'low': return 0x2ECC71; // green
+    case 'medium': return 0xF1C40F; // yellow
+    case 'high': return 0xE67E22; // orange
+    case 'extreme': return 0xE74C3C; // red
+    default: return 0x95A5A6; // grey
+  }
+}
+
 function postBounty() {
   if (!client.channels.cache.has(bountyChannelId)) return;
   const bounty = bountyList[Math.floor(Math.random() * bountyList.length)];
 
   const embed = new EmbedBuilder()
-    .setTitle(`\uD83D\uDCF1 New Bounty Posted!`)
+    .setTitle(`New Bounty Posted!`)
     .setDescription(
-      `\uD83C\uDFAF **Target:** ${bounty.name} (${bounty.species})\n` +
-      `\uD83E\uDDEC **Affiliation:** ${bounty.affiliation} | **Skills:** ${bounty.known_skills}\n` +
-      `\uD83D\uDCCD **Location:** ${bounty.location}\n` +
-      `\uD83D\uDC80 **Crime:** ${bounty.crime}\n` +
-      `\uD83D\uDCE6 **Job Type:** ${bounty.job_type} | \uD83C\uDF9A️ Difficulty: ${bounty.difficulty}\n` +
-      `\uD83D\uDCB0 **Reward:** ${bounty.reward} credits | \uD83C\uDF96️ Bonus: ${bounty.bonus || 'None'}\n` +
-      `\uD83D\uDDFA ${bounty.last_seen}`
+      `Target: ${bounty.name} (${bounty.species})\n` +
+      `Affiliation: ${bounty.affiliation} | Skills: ${bounty.known_skills}\n` +
+      `Location: ${bounty.location}\n` +
+      `Crime: ${bounty.crime}\n` +
+      `Job Type: ${bounty.job_type} | Difficulty: ${bounty.difficulty}\n` +
+      `Reward: ${bounty.reward} credits | Bonus: ${bounty.bonus || 'None'}\n` +
+      `${bounty.last_seen}`
     )
     .setFooter({ text: `React 🎯 to claim this bounty.` })
-    .setColor('DarkRed');
+    .setColor(getDifficultyColor(bounty.difficulty));
 
   client.channels.fetch(bountyChannelId).then(channel => {
     channel.send({ embeds: [embed] }).then(msg => {
-      activeBounty = { id: msg.id, claimed: false };
+      activeBounty = { id: msg.id, claimed: false, reward: bounty.reward };
 
       msg.react('🎯');
 
@@ -74,19 +84,23 @@ function postBounty() {
       collector.on('collect', (reaction, user) => {
         if (!activeBounty.claimed) {
           activeBounty.claimed = true;
-
           const claimedEmbed = EmbedBuilder.from(embed)
-            .setFooter({ text: `✅ Claimed by ${user.username}` })
-            .setColor('Green');
+            .setFooter({ text: `Claimed by ${user.username}` })
+            .setColor(0x3498DB);
 
           msg.edit({ embeds: [claimedEmbed] }).catch(console.error);
-          msg.reply(`\uD83D\uDEE1️ Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
+          msg.reply(`Bounty claimed by <@${user.id}>! Use \`!bountyclaim\` when complete.`);
+
+          const claimer = getUser(user.id);
+          claimer.credits += activeBounty.reward;
+          saveUsers();
+          msg.channel.send(`<@${user.id}> has been awarded ${activeBounty.reward} credits.`);
         }
       });
 
       collector.on('end', () => {
         if (!activeBounty.claimed) {
-          msg.reply('⏳ Bounty expired. No one claimed it.');
+          msg.reply('Bounty expired. No one claimed it.');
         }
         activeBounty = null;
       });
@@ -105,53 +119,53 @@ client.on('messageCreate', async (message) => {
   user.id = message.author.id;
 
   if (command === 'profile') {
-    return message.reply(`📄 **Profile: ${message.author.username}**\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige Class: ${user.prestigeClass}`);
+    return message.reply(`Profile: ${message.author.username}\nLevel: ${user.level}\nCredits: ${user.credits}\nPrestige Class: ${user.prestigeClass}`);
   }
 
   if (command === 'balance') {
-    return message.reply(`💳 You have **${user.credits} credits**.`);
+    return message.reply(`You have ${user.credits} credits.`);
   }
 
   if (command === 'setcredits') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('You do not have permission.');
     const target = message.mentions.users.first();
     const amount = parseInt(args[1]);
-    if (!target || isNaN(amount)) return message.reply('Usage: `!setcredits @user <amount>`');
+    if (!target || isNaN(amount)) return message.reply('Usage: !setcredits @user <amount>');
     getUser(target.id).credits = amount;
     saveUsers();
-    return message.reply(`✅ Set ${target.username}'s credits to ${amount}.`);
+    return message.reply(`Set ${target.username}'s credits to ${amount}.`);
   }
 
   if (command === 'give') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('You do not have permission.');
     const target = message.mentions.users.first();
     const amount = parseInt(args[1]);
-    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: `!give @user <amount>`');
-    if (user.credits < amount) return message.reply('❌ You don’t have enough credits.');
+    if (!target || isNaN(amount) || amount <= 0) return message.reply('Usage: !give @user <amount>');
+    if (user.credits < amount) return message.reply('You don’t have enough credits.');
     const targetUser = getUser(target.id);
     user.credits -= amount;
     targetUser.credits += amount;
     saveUsers();
-    return message.reply(`💸 Gave **${amount} credits** to ${target.username}.`);
+    return message.reply(`Gave ${amount} credits to ${target.username}.`);
   }
 
   if (command === 'bountyclaim') {
-    return message.reply(`📣 <@&${allowedRoleId}>: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
+    return message.reply(`@&${allowedRoleId}: <@${message.author.id}> has claimed a bounty! Please verify the completion.`);
   }
 
   if (command === 'forcebounty') {
-    if (!hasAdminRole(message.member, message.author.id)) return message.reply('⛔ You do not have permission.');
+    if (!hasAdminRole(message.member, message.author.id)) return message.reply('You do not have permission.');
     postBounty();
-    return message.reply('📡 Manual bounty posted.');
+    return message.reply('Manual bounty posted.');
   }
 });
 
 client.once('ready', () => {
-  console.log(`✅ Bot is running! Logged in as ${client.user.tag}`);
+  console.log(`Bot is running! Logged in as ${client.user.tag}`);
 });
 
 process.on('SIGINT', () => {
-  console.log('👋 Bot shutting down...');
+  console.log('Bot shutting down...');
   process.exit();
 });
 
